@@ -2,4 +2,4 @@
 /results
 results.json
 /__pycache__
-/best.onnx
+/model.onnx
