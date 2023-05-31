@@ -27,7 +27,7 @@ from get_text import extract_text, process_label
 )
 def cli(dir, num_images, conf, verbose, save):
     dir = Path(dir)
-    model = torch.hub.load("ultralytics/yolov5", "custom", "best.onnx")
+    model = torch.hub.load("ultralytics/yolov5", "custom", "model.onnx")
     model.conf = conf
     images = image_walk(dir, num_images)
     boxes = set()
