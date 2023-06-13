@@ -35,9 +35,11 @@ def mask_img(thresh, cnt):
 def process_black_label(img, kernel):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     blur = cv2.GaussianBlur(gray, (3, 3), 0)
-    _, thresh = cv2.threshold(blur, 170, 255, cv2.THRESH_BINARY_INV)
+    _, thresh = cv2.threshold(blur, 160, 255, cv2.THRESH_BINARY_INV)
+    # thresh = cv2.adaptiveThreshold(blur, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY_INV, 21, 10)
     _, rotation_image = cv2.threshold(gray, 120, 255, cv2.THRESH_BINARY_INV)
-    return thresh, rotation_image
+    _, text_img = cv2.threshold(gray, 200, 255, cv2.THRESH_BINARY_INV)
+    return thresh, rotation_image, text_img
 
 
 def get_label_rotation(cnt, shape):
@@ -77,9 +79,9 @@ def process_label(cropped, label_type):
     shape = rotated.shape[0:2]
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
     if label_type == "black":
-        thresh, rotation_image = process_black_label(rotated, kernel)
+        thresh, rotation_image, t_img = process_black_label(rotated, kernel)
     else:
-        return None, None
+        return None, None, None
 
     # get larges contour
     cnts, _ = cv2.findContours(rotation_image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
@@ -89,9 +91,9 @@ def process_label(cropped, label_type):
     out = mask_img(thresh, cnt)
     angle = get_label_rotation(cnt, shape)
     out = rotate_image(out, angle)
-    out = clean_image(out, kernel)
+    # out = clean_image(out, kernel)
 
-    return out, rotation_image
+    return out, rotation_image, t_img
 
 
 def extract_text(img, conf=0.85):

@@ -19,6 +19,9 @@ class Box:
         "n_delt_skab": re.compile(
             r"(4|6|7)\s?D.?\s?skab\s?\d{1,5}\s?-\s?\d{1,4}", re.IGNORECASE
         ),
+        # nord
+        "transformer_nord": re.compile(r"T.\s?\d{1,5}\s?-\s?\d\s?-\s?[A-ZÅÆØ]"),
+        # all
         "strækningsskilte": re.compile(
             r"Skab\s?\d{1,5}\s?-\s?\d{1,4}"
         ),  # TODO hvor mange digits efter bindestreg? # TODO Kan man adskille udføringsskab og strækningsskab? # TODO blandes sammen med delte skabe
@@ -28,14 +31,22 @@ class Box:
         self.id = id_
         self.labels = {}
 
-    def add_label(self, text):
+    def add_label(self, text, pixels):
         result = self._get_type(text)
         if result is not None:
             type_, id_, rest = result
             if type_ not in self.labels:
-                self.labels[type_] = set()
+                # self.labels[type_] = set()
+                self.labels[type_] = {}
             id_ = "".join(filter(lambda x: x.isnumeric() or x == "-", id_))
-            self.labels[type_].add(Label(type_, id_, rest, text))
+            label = Label(type_, id_, rest, text, pixels)
+            # self.labels[type_].add(label)
+            if label not in self.labels[type_].values():
+                self.labels[type_][id_] = label
+            else:
+                old_label = self.labels[type_][id_]
+                if label > old_label:
+                    self.labels[type_][id_] = label
 
     def _get_type(self, text):
         """the type of the label that we seek should be placed before in the word string than other data that we wish to extract"""
@@ -69,7 +80,7 @@ class Box:
         labels = {}
         for k, v in self.labels.items():
             labels[k] = {}
-            for l in v:
+            for l in v.values():
                 labels[k][l.id] = l.asdict()
         return labels
 
@@ -89,7 +100,8 @@ class Label:
 
     stikskilt = merge(dimension, ampere, address)
     strækningsskilt = merge(dimension, ampere, address)
-    transformer = merge(dimension, ampere, address)
+    transformer_city = merge(dimension, ampere, address)
+    transformer_nord = merge(dimension, address)
 
     filters = {
         "dimension": lambda x: x.strip().lower(),
@@ -97,15 +109,17 @@ class Label:
         "address": lambda x: x,
     }
 
-    def __init__(self, type_, id_, text, full_text):
+    def __init__(self, type_, id_, text, full_text, pixels):
         self.id = id_
-
+        self.pixels = pixels
         if type_ == "stikskilte":
             self.unclassified_text = self._match_data(self.stikskilt, text)
         elif type_ == "strækningsskilte":
             self.unclassified_text = self._match_data(self.strækningsskilt, text)
         elif type_ == "transformer_city":
-            self.unclassified_text = self._match_data(self.stikskilt, text)
+            self.unclassified_text = self._match_data(self.transformer_city, text)
+        elif type_ == "transformer_nord":
+            self.unclassified_text = self._match_data(self.transformer_nord, text)
         elif type_ == "n_delt_skab":
             self.unclassified_text = self._match_data(self.stikskilt, text)
         else:
@@ -131,10 +145,14 @@ class Label:
     def __eq__(self, other):
         return self.id == other.id
 
+    def __gt__(self, other):
+        return self.pixels > other.pixels
+
     def __hash__(self):
         return hash(self.id)
 
     def asdict(self):
         out = dict(vars(self))
         out.pop("id")
+        out.pop("pixels")
         return out

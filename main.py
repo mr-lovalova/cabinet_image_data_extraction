@@ -17,7 +17,7 @@ from get_text import extract_text, process_label
     help="Folder containing subfolders with images",
 )
 @click.option("--verbose", "-v", is_flag=True, help="Will print verbose messages.")
-@click.option("--conf", default=0.75, help="Confidence of object detection model")
+@click.option("--conf", default=0.8, help="Confidence of object detection model")
 @click.option("--num_images", default=50, help="Number of images to do detection from")
 @click.option(
     "--save",
@@ -49,13 +49,14 @@ def cli(dir, num_images, conf, verbose, save):
             click.echo(f"Detected {len(cropped)} labels")
         for count, crop in enumerate(cropped):
             label_type, _ = crop["label"].split()
-            clean_img, rot = process_label(crop["im"], label_type)
+            clean_img, rot, t_img = process_label(crop["im"], label_type)
             if clean_img is None:
                 continue
             label_text = extract_text(clean_img)
             if verbose:
                 click.echo(f"Extracted text from Label {count}: {label_text}")
-            box.add_label(label_text)
+            pixels = clean_img.shape[0] * clean_img.shape[1]
+            box.add_label(label_text, pixels)
 
             if save:
                 im_path = path / f"{count}.jpg"
@@ -67,7 +68,8 @@ def cli(dir, num_images, conf, verbose, save):
                 rot = Image.fromarray(rot)
                 im.save(im_path)
                 clean_img.save(clean_im_path)
-                rot.save(rot_im_path)
+                # rot.save(rot_im_path)
+                Image.fromarray(t_img).save(rot_im_path)
                 with open(txt_path, "w") as f:
                     f.write(label_text)
 
