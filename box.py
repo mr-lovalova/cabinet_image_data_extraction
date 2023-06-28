@@ -1,4 +1,5 @@
 import re
+from filters import filters, maps
 
 
 def merge(*dicts):
@@ -23,7 +24,7 @@ class Box:
         "transformer_nord": re.compile(r"T.\s?\d{1,5}\s?-\s?\d\s?-\s?[A-ZÅÆØ]"),
         # all
         "strækningsskilte": re.compile(
-            r"Skab\s?\d{1,5}\s?-\s?\d{1,4}"
+            r"^(Skab|SKAB)\s?\d{1,5}\s?-\s?\d{1,4}"  # TODO r"Skab\s?\d{1,5}\s?-\s?\d{1,4}" differentier mlm. ukorrekt ndelt og strækningskilt
         ),  # TODO hvor mange digits efter bindestreg? # TODO Kan man adskille udføringsskab og strækningsskab? # TODO blandes sammen med delte skabe
     }
 
@@ -36,11 +37,9 @@ class Box:
         if result is not None:
             type_, id_, rest = result
             if type_ not in self.labels:
-                # self.labels[type_] = set()
                 self.labels[type_] = {}
             id_ = "".join(filter(lambda x: x.isnumeric() or x == "-", id_))
             label = Label(type_, id_, rest, text, pixels)
-            # self.labels[type_].add(label)
             if label not in self.labels[type_].values():
                 self.labels[type_][id_] = label
             else:
@@ -103,12 +102,6 @@ class Label:
     transformer_city = merge(dimension, ampere, address)
     transformer_nord = merge(dimension, address)
 
-    filters = {
-        "dimension": lambda x: x.strip().lower(),
-        "ampere": lambda x: x.strip().upper(),
-        "address": lambda x: x,
-    }
-
     def __init__(self, type_, id_, text, full_text, pixels):
         self.id = id_
         self.pixels = pixels
@@ -138,7 +131,9 @@ class Label:
             replacements = []
             text = re.sub(pattern, repl, text, 1)
             if replacements:
-                cleaned = "".join(map(self.filters[key], replacements[0]))
+                f = filter(filters[key], enumerate(replacements[0]))
+                f = map(maps[key], f)
+                cleaned = "".join(f)
                 setattr(self, key, cleaned)
         return text
 

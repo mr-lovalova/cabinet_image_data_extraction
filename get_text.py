@@ -34,11 +34,18 @@ def mask_img(thresh, cnt):
 
 def process_black_label(img, kernel):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    invert = cv2.bitwise_not(gray)
     blur = cv2.GaussianBlur(gray, (3, 3), 0)
     _, thresh = cv2.threshold(blur, 160, 255, cv2.THRESH_BINARY_INV)
-    # thresh = cv2.adaptiveThreshold(blur, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY_INV, 21, 10)
     _, rotation_image = cv2.threshold(gray, 120, 255, cv2.THRESH_BINARY_INV)
-    _, text_img = cv2.threshold(gray, 200, 255, cv2.THRESH_BINARY_INV)
+    ### adaptive ?
+    # invert = cv2.bitwise_not(gray)
+    # rotation_image = cv2.adaptiveThreshold(
+    #   invert, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 21, 10
+    # )
+    ###
+    # rotation_image = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    _, text_img = cv2.threshold(gray, 175, 255, cv2.THRESH_BINARY_INV)
     return thresh, rotation_image, text_img
 
 
@@ -89,8 +96,12 @@ def process_label(cropped, label_type):
     cnt = cnts[0]
 
     out = mask_img(thresh, cnt)
+    t_img = mask_img(t_img, cnt)
+
     angle = get_label_rotation(cnt, shape)
+
     out = rotate_image(out, angle)
+    t_img = rotate_image(t_img, angle)
     # out = clean_image(out, kernel)
 
     return out, rotation_image, t_img

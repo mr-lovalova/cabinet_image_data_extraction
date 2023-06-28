@@ -52,7 +52,8 @@ def cli(dir, num_images, conf, verbose, save):
             clean_img, rot, t_img = process_label(crop["im"], label_type)
             if clean_img is None:
                 continue
-            label_text = extract_text(clean_img)
+            # label_text = extract_text(clean_img) # TODO bedst med eller uden blur ? clean_img, vs text_img
+            label_text = extract_text(t_img)
             if verbose:
                 click.echo(f"Extracted text from Label {count}: {label_text}")
             pixels = clean_img.shape[0] * clean_img.shape[1]

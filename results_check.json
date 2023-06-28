@@ -1,29 +1,425 @@
 {
-	"6-10": {
+	"description": "Implemented formats are stikskilte, strækningsskilte, with values: dimension, ampere, address. Labels with corrupted or incomplete information are as null. only black labels",
+	"23-7": {
 		"strækningsskilte": {
-			"6-1": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 6-1"
+			"23-06": {}
+		},
+		"stikskilte": {
+			"60046567": {
+				"dimension": "4X16CU",
+				"ampere": "50A",
+				"address": "Lyngby Hovedgade 64"
+			},
+			"60008774": {
+				"dimension": "4X16CU",
+				"ampere": "35A",
+				"address": "Lyngby Hovedgade 62"
+			},
+			"60956683": {
+				"dimension": "4X16CU",
+				"ampere": "50A",
+				"address": "Lyngby Hovedgade 62A"
 			}
 		}
 	},
-	"9-34": {
+	"36-23": {
 		"strækningsskilte": {
-			"09-33": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 09 -33"
+			"36-22": {},
+			"36-24": {}
+		},
+		"stikskilte": {
+			"60182720": {
+				"dimension": null,
+				"ampere": "35A",
+				"address": "Bolbrovej 10A"
+			},
+			"60217150": {
+				"dimension": "4X16CU",
+				"ampere": "35A",
+				"address": "Bolbrovej 8"
+			},
+			"60221429": {
+				"dimension": "4X16CU",
+				"ampere": "35A",
+				"address": "Bolbrovej 9"
 			}
 		}
 	},
-	"11-24": {},
+	"21-75": {
+		"strækningsskilte": {
+			"21-76": {},
+			"21-74": {}
+		},
+		"stikskilte": {
+			"60014171": {
+				"dimension": "4X10CU",
+				"ampere": "25A",
+				"address": "Annemonevej 8"
+			},
+			"60016075": {
+				"dimension": "4X16CU",
+				"ampere": "35A",
+				"address": "Annemonevej 7"
+			},
+			"60016199": {
+				"dimension": "4X10CU",
+				"ampere": "25A",
+				"address": "Annemonevej 6"
+			},
+			"60027489": {
+				"dimension": "4X10CU",
+				"ampere": "25A",
+				"address": "Annemonevej 5"
+			}
+		}
+	},
 	"31-30": {
 		"strækningsskilte": {
-			"31-29": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 31-29"
+			"31-29": {},
+			"31-31": {}
+		},
+		"stikskilte": {
+			"60027413": {
+				"dimension": "4X10CU",
+				"ampere": "35A",
+				"address": "Ordruphøjvej 39"
+			},
+			"60054416": {
+				"dimension": "4X10CU",
+				"ampere": "35A",
+				"address": "Ordruphøjvej 46"
+			},
+			"60059164": {
+				"dimension": "4X10CU",
+				"ampere": "35A",
+				"address": "Ordruphøjvej 37"
+			},
+			"60028276": {
+				"dimension": "4X10CU",
+				"ampere": "35A",
+				"address": "Ordruphøjvej 44"
 			}
 		}
 	},
+	"40-50": {
+		"strækningsskilte": {
+			"40-48": {},
+			"40-51": {},
+			"40-52": {}
+		},
+		"TODO": {}
+	},
+	"2515-53": {
+		"strækningsskilte": {
+			"2515-1": {}
+		},
+		"stikskilte": {
+			"61040206": {
+				"dimension": "4X16CU",
+				"ampere": "63A",
+				"address": "Kokkedalen 6"
+			}
+		}
+	},
+	"11-24": {
+		"strækningsskilte": {
+			"11-25": {}
+		},
+		"stikskilte": {
+			"60029291": {
+				"dimension": "4X16CU",
+				"ampere": "50A",
+				"address": "Strandvejen 108"
+			},
+			"60337050": {
+				"dimension": "4X16CU",
+				"ampere": "63A",
+				"address": "Strandvejen 108"
+			}
+		},
+		"transformer_nord": {
+			"T.11-D": {
+				"dimension": "4X150AL",
+				"address": "Strandvejen 102"
+			}
+		}
+	},
+	"29-42": {
+		"strækningsskilte": {
+			"29-28": {},
+			"29-06": {}
+		}
+	},
+	"43-03": {
+		"TODO": {}
+	},
+	"20258": {
+		"TODO": {}
+	},
+	"44-34": {
+		"strækningsskilte": {
+			"44-32": {},
+			"44-35": {}
+		},
+		"stikskilte": {
+			"60221048": {
+				"dimension": "4X10CU",
+				"ampere": "35A",
+				"address": "Niverødvej 11"
+			},
+			"60199127": {
+				"dimension": "4X16CU",
+				"ampere": "63A",
+				"address": "Niverødvej 10-12"
+			},
+			"60202484": {
+				"dimension": "4X10CU",
+				"ampere": "25A",
+				"address": "Niverødvej 9"
+			}
+		}
+	},
+	"20-41": {
+		"strækningsskilte": {
+			"20-40": {},
+			"20-45": {}
+		},
+		"stikskilte": {
+			"60028273": {
+				"dimension": "4X10CU",
+				"ampere": "35A",
+				"address": "Sognegrænsen 1"
+			},
+			"60029376": {
+				"dimension": "4X10CU",
+				"ampere": "25A",
+				"address": "Sognegrænsen 3"
+			},
+			"60031241": {
+				"dimension": "4X10CU",
+				"ampere": "35A",
+				"address": null
+			}
+		}
+	},
+	"9-45": {
+		"strækningsskilte": {
+			"09-44": {}
+		},
+		"stikskilte": {
+			"60013185": {
+				"dimension": "4X16CU",
+				"ampere": "35A",
+				"address": "Øresundsvej 2l"
+			},
+			"60007301": {
+				"dimension": "4X16CU",
+				"ampere": "50A",
+				"address": "Øresundsvej 2c"
+			},
+			"60007293": {
+				"dimension": "4X16CU",
+				"ampere": "63A",
+				"address": "Øresundsvej 2b"
+			},
+			"60055265": {
+				"dimension": "4X16CU",
+				"ampere": "50A",
+				"address": "Øresundsvej 2e"
+			},
+			"60007075": {
+				"dimension": "4X16CU",
+				"ampere": "25A",
+				"address": null
+			},
+			"61933369": {
+				"dimension": "4X16CU",
+				"ampere": "35A",
+				"address": "Øresundsvej 2f"
+			},
+			"60025180": {
+				"dimension": "4X16CU",
+				"ampere": "25A",
+				"address": "Strandvejen 255"
+			}
+		}
+	},
+	"3508 - 3": {
+		"TODO": {}
+	},
+	"1-1": {
+		"stikskilte": {
+			"60033879": {
+				"dimension": "4X16CU",
+				"ampere": "35A",
+				"address": "Skodsborg Strandvej 220B"
+			},
+			"60032548": {
+				"dimension": "4X10CU",
+				"ampere": "35A",
+				"address": "Skodsborg Strandvej 220A"
+			},
+			"60055513": {
+				"dimension": "4X10CU",
+				"ampere": "35A",
+				"address": "Skodsborg Strandvej 118"
+			},
+			"60030868": {
+				"dimension": "4X10CU",
+				"ampere": "50A",
+				"address": "Skodsborg Strandvej 216"
+			}
+		},
+		"strækningsskilte": {
+			"1-13": {}
+		}
+	},
+	"checkpoint": "",
+	"13-26": {
+		"strækningsskilte": {
+			"13-27": {}
+		},
+		"transformer_nord": {
+			"T.13-A": {
+				"dimension": null,
+				"address": "Rygårdsvej 1"
+			}
+		},
+		"stikskilte": {
+			"60030330": {
+				"dimension": "4X10CU",
+				"ampere": "25A",
+				"address": "Henningsens alle 18"
+			},
+			"60008339": {
+				"dimension": "4X10CU",
+				"ampere": "35A",
+				"address": "Henningsens alle 17"
+			}
+		}
+	},
+	"9041-6397": {
+		"strækningsskilte": {
+			"9041-1763": {},
+			"9041-6393": {}
+		},
+		"stikskilte": {
+			"60326755": {
+				"dimension": null,
+				"ampere": "35A",
+				"address": "Sune Ebbesensvej 2"
+			},
+			"60326727": {
+				"dimension": null,
+				"ampere": "25A",
+				"address": "Sune Ebbesensvej 1"
+			}
+		}
+	},
+	"checkpoint": "",
+	"1904-45": {
+		"stikskilte": {
+			"60211499": {
+				"dimension": "4X10CU",
+				"ampere": "35A",
+				"address": "Kongevej 20",
+				"unclassified_text": "  Usserød  ",
+				"all_extracted_text": "TSO nummer 60211499 4x10mm2 Cu Usserød Kongevej 20 35 A"
+			}
+		}
+	},
+	"41-03": {},
+	"1681-24": {},
+	"9084-61": {},
+	"9136-6835": {
+		"stikskilte": {
+			"60317347": {
+				"ampere": "35A",
+				"address": "Helsingevej 137",
+				"unclassified_text": " 4x16mm2  ",
+				"all_extracted_text": "T8O nummer 60317347 4x16mm2 Helsingevej 137 35 A"
+			}
+		}
+	},
+	"19-11": {},
+	"1-14": {},
+	"5-23": {
+		"stikskilte": {
+			"60007488": {
+				"dimension": "4X16CU",
+				"ampere": "35A",
+				"address": "Bellevuevej 13-15",
+				"unclassified_text": null,
+				"all_extracted_text": "60007488 4x16CU Bellevuevej 13-15 35 A"
+			},
+			"60013308": {
+				"dimension": "4X16CU",
+				"ampere": "80A",
+				"address": "Strandvejen 429",
+				"unclassified_text": " \"   ",
+				"all_extracted_text": "60013308 \" 4X16CU Strandvejen 429 80A"
+			},
+			"60051072": {
+				"dimension": "4X16CU",
+				"ampere": "25A",
+				"address": "Bellevuevej 9-11",
+				"unclassified_text": null,
+				"all_extracted_text": ". 60051072 4x16CU Bellevuevej 9-11 25 A"
+			},
+			"61772267": {
+				"dimension": "4X16CU",
+				"ampere": "25A",
+				"address": "Bellevuevej 17",
+				"unclassified_text": null,
+				"all_extracted_text": "TSO nu r 61772267 4x16 Cu Bellevuevej 17 25 A"
+			}
+		}
+	},
+	"2927-39": {
+		"strækningsskilte": {
+			"2927-38": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 2927 - 38"
+			},
+			"2927-40": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 2927 - 40"
+			}
+		}
+	},
+	"43-3": {},
+	"20-30": {
+		"strækningsskilte": {
+			"20-01": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 20-01"
+			},
+			"20-29": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 20-29"
+			}
+		},
+		"stikskilte": {
+			"60024131": {
+				"dimension": "2X16CU",
+				"ampere": "35A",
+				"address": "Middelvej 11",
+				"unclassified_text": null,
+				"all_extracted_text": "TSO nummer 60024131 Middelvej 11 2x16mm2 Cu 35A"
+			}
+		}
+	},
+	"3999-56": {},
+	"39-34": {},
+	"37-3": {
+		"strækningsskilte": {
+			"37-2": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 37-2"
+			}
+		}
+	},
+	"51-22": {},
 	"9081-01": {
 		"strækningsskilte": {
 			"9081-02": {
@@ -59,349 +455,6 @@
 			}
 		}
 	},
-	"2515-53": {},
-	"24-03": {
-		"stikskilte": {
-			"60332857": {
-				"dimension": "4x16mm2cu",
-				"ampere": "25A",
-				"address": "Hovedgade 82",
-				"unclassified_text": " ”  Søbdårg  ",
-				"all_extracted_text": "FSO nummer 60332857 ” 4x16mm2 Cu Søbdårg Hovedgade 82 25A"
-			},
-			"60034266": {
-				"dimension": "4x25mm2cu",
-				"ampere": "80A",
-				"address": "Hovedgade 84",
-				"unclassified_text": " NE  Søborg  ",
-				"all_extracted_text": "TSO nummer a 60034266 NE 4x25mm2 Cu Søborg Hovedgade 84 80A"
-			},
-			"60382557": {
-				"unclassified_text": " Søborg Hovedgade",
-				"all_extracted_text": "60382557 Søborg Hovedgade"
-			}
-		},
-		"strækningsskilte": {
-			"24-02": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 24-02"
-			},
-			"24-04": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 24-04"
-			}
-		}
-	},
-	"5-23": {
-		"stikskilte": {
-			"60007488": {
-				"dimension": "4x16cu",
-				"ampere": "35A",
-				"address": "Bellevuevej 13-15",
-				"unclassified_text": null,
-				"all_extracted_text": "60007488 4x16CU Bellevuevej 13-15 35 A"
-			},
-			"60013308": {
-				"dimension": "4x16cu",
-				"ampere": "80A",
-				"address": "Strandvejen 429",
-				"unclassified_text": " \"   ",
-				"all_extracted_text": "60013308 \" 4X16CU Strandvejen 429 80A"
-			},
-			"60051072": {
-				"dimension": "4x16cu",
-				"ampere": "25A",
-				"address": "Bellevuevej 9-11",
-				"unclassified_text": null,
-				"all_extracted_text": ". 60051072 4x16CU Bellevuevej 9-11 25 A"
-			},
-			"61772267": {
-				"dimension": "4x16cu",
-				"ampere": "25A",
-				"address": "Bellevuevej 17",
-				"unclassified_text": null,
-				"all_extracted_text": "TSO nu r 61772267 4x16 Cu Bellevuevej 17 25 A"
-			}
-		},
-		"strækningsskilte": {
-			"5-24": {
-				"dimension": "4x150al",
-				"ampere": "160A",
-				"address": "Bellevuevej 10",
-				"unclassified_text": null,
-				"all_extracted_text": "1 Skab 5 - 24 4x150AL Bellevuevej 10 160 A"
-			}
-		}
-	},
-	"3508 - 3": {},
-	"11-9": {
-		"stikskilte": {
-			"60014385": {
-				"dimension": "4x16mm2cu",
-				"ampere": "63A",
-				"address": "Strandvejen 110",
-				"unclassified_text": " \"' D . ",
-				"all_extracted_text": "TSO nummer KE i . 60014385 \"4x16mm2Cu' Strandvejen 110D . 63A"
-			}
-		}
-	},
-	"39-34": {},
-	"13-26": {},
-	"37-3": {
-		"strækningsskilte": {
-			"37-2": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 37-2"
-			}
-		}
-	},
-	"19-43": {},
-	"3908-2": {
-		"stikskilte": {
-			"68287587": {
-				"dimension": "4x75cu",
-				"ampere": "25A",
-				"address": "Salsægirdsvej 3",
-				"unclassified_text": "  /45D0D Al  ",
-				"all_extracted_text": "68287587 4x75 Cu /45D0D Al Salsægirdsvej 3 25 A"
-			}
-		},
-		"strækningsskilte": {
-			"3908-3": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 3908 - 3"
-			},
-			"3908-1": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 3908 - 1"
-			}
-		}
-	},
-	"17-11": {},
-	"17-07": {
-		"strækningsskilte": {
-			"17-01": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 17 -01"
-			}
-		}
-	},
-	"36-1": {
-		"strækningsskilte": {
-			"36-21": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 36 -21"
-			},
-			"36-06": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 36 -06"
-			}
-		},
-		"stikskilte": {
-			"60666888": {
-				"ampere": "25A",
-				"unclassified_text": " 2x10mm2 UB ",
-				"all_extracted_text": "TSO nummer 60666888 2x10mm2 UB 25A"
-			},
-			"60666868": {
-				"ampere": "35A",
-				"unclassified_text": " 2x6mm2 Teknisk anlæg, Lysregulering ",
-				"all_extracted_text": "nummer 60666868 2x6mm2 Teknisk anlæg, Lysregulering 35A"
-			}
-		}
-	},
-	"23-7": {
-		"strækningsskilte": {
-			"23-06": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 23-06"
-			}
-		},
-		"stikskilte": {
-			"60046587": {
-				"dimension": "4x16mm2cu",
-				"ampere": "50A",
-				"address": "Hovedgade 64",
-				"unclassified_text": "  Lyngby  ",
-				"all_extracted_text": "TSO 60046587 4x16mm2 Cu Lyngby Hovedgade 64 50A"
-			}
-		}
-	},
-	"06-04": {
-		"stikskilte": {
-			"60004037": {
-				"dimension": "4x16mm2cu",
-				"ampere": "50A",
-				"address": "Strandvejen 322",
-				"unclassified_text": null,
-				"all_extracted_text": "TSO nummer 60004037 Strandvejen 322 4x16mm2 Cu 50A"
-			},
-			"60035064": {
-				"dimension": "4x16mm2cu",
-				"ampere": "35A",
-				"address": "Strandvejen 397",
-				"unclassified_text": null,
-				"all_extracted_text": "TSO nummer 60035064 4x16mm2 Cu 35A Strandvejen 397"
-			},
-			"60018235": {
-				"dimension": "4x16mm2cu",
-				"ampere": "35A",
-				"address": "Strandvejen 324",
-				"unclassified_text": null,
-				"all_extracted_text": "TSO nummer 60018235 4x16mm2 Cu Strandvejen 324 35A"
-			}
-		},
-		"strækningsskilte": {
-			"6-03": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 6-03"
-			},
-			"6-05": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 6-05"
-			}
-		}
-	},
-	"4535-03": {},
-	"40-51": {},
-	"4445-20": {},
-	"41-03": {},
-	"36-23": {
-		"strækningsskilte": {
-			"36-22": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 36 -22"
-			}
-		},
-		"stikskilte": {
-			"60182720": {
-				"ampere": "10A",
-				"unclassified_text": " 4x6mm2 Cu Bolbrovej  35A",
-				"all_extracted_text": "TSO 60182720 4x6mm2 Cu Bolbrovej 10A 35A"
-			},
-			"62247159": {
-				"dimension": "4x16mm2cu",
-				"ampere": "35A",
-				"address": "Bolbrovej 8",
-				"unclassified_text": null,
-				"all_extracted_text": "780 62247159 4x16mm2 Cu Bolbrovej 8 35A"
-			}
-		}
-	},
-	"36333": {},
-	"5-27": {},
-	"9041-6397": {
-		"strækningsskilte": {
-			"2341-1783": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 2341-1783"
-			},
-			"9041-6393": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 9041-6393"
-			}
-		},
-		"stikskilte": {
-			"60328788": {
-				"ampere": "35A",
-				"address": "Ebbesensvej 2",
-				"unclassified_text": " 4x10mm2 Sune  ",
-				"all_extracted_text": "T30 marener 60328788 4x10mm2 Sune Ebbesensvej 2 35 A"
-			},
-			"60328727": {
-				"ampere": "25A",
-				"address": "Ebbesensvej 1",
-				"unclassified_text": " 4x10mm2 Sune  ",
-				"all_extracted_text": "780 nummer \"60328727 4x10mm2 Sune Ebbesensvej 1 25 A"
-			}
-		}
-	},
-	"8-26": {
-		"stikskilte": {
-			"60056483": {
-				"dimension": "4x16al",
-				"ampere": "35A",
-				"unclassified_text": "  Bostamose vestre stæde5 ",
-				"all_extracted_text": "60056483 4x16 Al Bostamose vestre stæde5 35 A"
-			},
-			"68866444": {
-				"dimension": "4x10al",
-				"ampere": "25A",
-				"unclassified_text": "  Bostamose veste svæde3 ",
-				"all_extracted_text": "68866444 4x10 Al Bostamose veste svæde3 25 A"
-			}
-		},
-		"strækningsskilte": {
-			"8-25": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 8 -25"
-			}
-		}
-	},
-	"5-24": {},
-	"20-41": {},
-	"23-07": {
-		"strækningsskilte": {
-			"23-06": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 23-06"
-			}
-		},
-		"stikskilte": {
-			"60046587": {
-				"dimension": "4x16mm2cu",
-				"ampere": "50A",
-				"address": "Hovedgade 64",
-				"unclassified_text": "  Lyngby  ",
-				"all_extracted_text": "TSO 60046587 4x16mm2 Cu Lyngby Hovedgade 64 50A"
-			}
-		}
-	},
-	"13-12": {},
-	"270-61": {
-		"stikskilte": {
-			"60134394": {
-				"unclassified_text": null,
-				"all_extracted_text": "TRO summer 60134394"
-			}
-		}
-	},
-	"1904-45": {
-		"stikskilte": {
-			"60211499": {
-				"dimension": "4x10mm2cu",
-				"ampere": "35A",
-				"address": "Kongevej 20",
-				"unclassified_text": "  Usserød  ",
-				"all_extracted_text": "TSO nummer 60211499 4x10mm2 Cu Usserød Kongevej 20 35 A"
-			}
-		}
-	},
-	"16-02": {
-		"stikskilte": {
-			"60083415": {
-				"dimension": "4x10mm2cu",
-				"ampere": "35A",
-				"address": "Kildeskovsvej 86",
-				"unclassified_text": "  F ",
-				"all_extracted_text": "TSO nummer 60083415 4x10mm2 Cu Kildeskovsvej 86F 35A"
-			},
-			"60053409": {
-				"dimension": "4x10mm2cu",
-				"ampere": "35A",
-				"address": "Kildeskovsvej 86",
-				"unclassified_text": "  E ",
-				"all_extracted_text": "TSO nummer 60053409 4x10mm2 Cu Kildeskovsvej 86E 35A"
-			}
-		},
-		"strækningsskilte": {
-			"16-01": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab16-01"
-			}
-		}
-	},
-	"43-03": {},
 	"22.13": {
 		"strækningsskilte": {
 			"220-03": {
@@ -410,84 +463,8 @@
 			}
 		}
 	},
-	"9-4": {
-		"strækningsskilte": {
-			"0-08": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 0 -08"
-			},
-			"09-03": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 09 -03"
-			}
-		}
-	},
-	"37233": {},
-	"32-05": {
-		"strækningsskilte": {
-			"32-06": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 32-06"
-			},
-			"32-04": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 32-04"
-			}
-		},
-		"stikskilte": {
-			"60055635": {
-				"dimension": "4x16mm2cu",
-				"ampere": "63A",
-				"address": "Krog 2",
-				"unclassified_text": "  Stades  ",
-				"all_extracted_text": "TSO nummer 60055635 4x16mm2 Cu Stades Krog 2 63A"
-			},
-			"60008836": {
-				"dimension": "4x16mm2cu",
-				"ampere": "63A",
-				"address": "Krog 4",
-				"unclassified_text": "  Stades A ",
-				"all_extracted_text": "TSO nummer 60008836 4x16mm2 Cu Stades Krog 4A 63A"
-			}
-		}
-	},
-	"40-52": {},
-	"44-34": {
-		"strækningsskilte": {
-			"44-32": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 44-32"
-			},
-			"44-35": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 44-35"
-			}
-		},
-		"stikskilte": {
-			"60221048": {
-				"ampere": "85A",
-				"address": "Niverødvej 11",
-				"unclassified_text": " AX10 CU.  0 ",
-				"all_extracted_text": "TSO nummer 60221048 AX10 CU. Niverødvej 11 0 85A"
-			},
-			"60199127": {
-				"dimension": "4x16cu",
-				"ampere": "63A",
-				"address": "Niverødvej 10-12",
-				"unclassified_text": "   . ",
-				"all_extracted_text": "TSO nummer 60199127 4X16 CU Niverødvej 10-12 . 63 A"
-			},
-			"60202484": {
-				"address": "Niverødvej 9",
-				"unclassified_text": " AX10 CU ",
-				"all_extracted_text": "TSO nummer 60202484 AX10 CU Niverødvej 9"
-			}
-		}
-	},
-	"21017": {},
-	"16-62": {},
-	"3999-56": {},
-	"40-50": {},
+	"40-48": {},
+	"24-25": {},
 	"36-2": {
 		"stikskilte": {
 			"60237469": {
@@ -516,186 +493,156 @@
 			}
 		}
 	},
-	"35-34": {},
-	"19-11": {},
-	"1681-24": {},
-	"2927-39": {
-		"strækningsskilte": {
-			"2927-38": {
+	"37233": {},
+	"270-61": {
+		"stikskilte": {
+			"60134394": {
 				"unclassified_text": null,
-				"all_extracted_text": "Skab 2927 - 38"
-			},
-			"2927-40": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 2927 - 40"
+				"all_extracted_text": "TRO summer 60134394"
 			}
 		}
 	},
-	"20-30": {
-		"strækningsskilte": {
-			"20-01": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 20-01"
-			},
-			"20-29": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 20-29"
-			}
-		},
+	"8-26": {
 		"stikskilte": {
-			"60024131": {
-				"dimension": "2x16mm2cu",
+			"60056483": {
+				"dimension": "4X16AL",
 				"ampere": "35A",
-				"address": "Middelvej 11",
-				"unclassified_text": null,
-				"all_extracted_text": "TSO nummer 60024131 Middelvej 11 2x16mm2 Cu 35A"
-			}
-		}
-	},
-	"1-14": {},
-	"9084-61": {},
-	"4943-3": {
-		"strækningsskilte": {
-			"4943-04": {
-				"unclassified_text": ".",
-				"all_extracted_text": "Skab 4943-04."
-			}
-		},
-		"stikskilte": {
-			"60949019": {
-				"dimension": "4x95al",
-				"ampere": "125A",
-				"address": "Holm 2",
-				"unclassified_text": " .,u Wålger \" ",
-				"all_extracted_text": "TSQ nummer ki 60949019 .,4x95 Alu WålgerHolm 2 \" 125A"
-			}
-		}
-	},
-	"36-28": {},
-	"36996": {
-		"stikskilte": {
-			"61084624": {
-				"dimension": "4x95cu",
-				"ampere": "150A",
-				"address": "Bredgade 65",
-				"unclassified_text": "  /4xl  224 A",
-				"all_extracted_text": "TSO nummer 61084624 4x95 Cu /4x150 Al Bredgade 65 224 A"
-			}
-		}
-	},
-	"21-75": {
-		"stikskilte": {
-			"60014171": {
-				"dimension": "4x10mm2cu",
+				"unclassified_text": "  Bostamose vestre stæde5 ",
+				"all_extracted_text": "60056483 4x16 Al Bostamose vestre stæde5 35 A"
+			},
+			"68866444": {
+				"dimension": "4X10AL",
 				"ampere": "25A",
-				"address": "Annemonevej 8",
-				"unclassified_text": null,
-				"all_extracted_text": "TSO nummer 60014171 4x10mm2 Cu Annemonevej 8 25A"
-			},
-			"60016078": {
-				"dimension": "4x16mm2cu",
-				"ampere": "35A",
-				"address": "Annemonevej 7",
-				"unclassified_text": null,
-				"all_extracted_text": "TSO nummer 60016078 4x16mm2 Cu Annemonevej 7 35A"
-			}
-		}
-	},
-	"16-36": {},
-	"24-25": {},
-	"12-23": {
-		"stikskilte": {
-			"68216009": {
-				"unclassified_text": " saungnu OSL",
-				"all_extracted_text": "no 48 4/H 68216009 saungnu OSL"
-			}
-		}
-	},
-	"20258": {},
-	"40-53": {},
-	"1-1": {
-		"stikskilte": {
-			"60033879": {
-				"dimension": "4x16cu",
-				"ampere": "35A",
-				"address": "Strandvej 220",
-				"unclassified_text": " . | Skodsborg B  ",
-				"all_extracted_text": "TSO nummer 60033879 4X16 CU. | Skodsborg Strandvej 220B  35A"
-			},
-			"60032548": {
-				"ampere": "220A",
-				"unclassified_text": " 40 Skodsborg Strandvej  — 35A",
-				"all_extracted_text": "TSO nurhmer 60032548 40 Skodsborg Strandvej 220A — 35A"
-			},
-			"60088513": {
-				"address": "Skodsborg 118",
-				"unclassified_text": " AMAD GVU.  SA",
-				"all_extracted_text": "TSO | 60088513 AMAD GVU. Skodsborg 118 SA"
-			},
-			"60030868": {
-				"ampere": "50A",
-				"address": "Strandvej 216",
-				"unclassified_text": "  AMOCU. Skodsvorg  ",
-				"all_extracted_text": "TSO nurhmer 60030868  AMOCU. Skodsvorg Strandvej 216 50A"
+				"unclassified_text": "  Bostamose veste svæde3 ",
+				"all_extracted_text": "68866444 4x10 Al Bostamose veste svæde3 25 A"
 			}
 		},
 		"strækningsskilte": {
-			"1-13": {
+			"8-25": {
 				"unclassified_text": null,
-				"all_extracted_text": "Skab 1-13"
+				"all_extracted_text": "Skab 8 -25"
 			}
 		}
 	},
-	"61568": {
-		"stikskilte": {
-			"61625954": {
-				"unclassified_text": " 23. i",
-				"all_extracted_text": "Som 61625954 23. i"
-			}
-		}
-	},
-	"9-45": {
-		"stikskilte": {
-			"60013185": {
-				"dimension": "4x16mm2cu",
-				"ampere": "35A",
-				"address": "Øresundsvej 2",
+	"4535-03": {},
+	"21017": {},
+	"36-28": {},
+	"9-4": {
+		"strækningsskilte": {
+			"0-08": {
 				"unclassified_text": null,
-				"all_extracted_text": "TSO nummer 60013185 4x16mm2 Cu 35A Øresundsvej 2"
+				"all_extracted_text": "Skab 0 -08"
 			},
-			"60007301": {
-				"dimension": "4x16mm2cu",
-				"ampere": "50A",
-				"address": "Øresundsvej 2",
-				"unclassified_text": "   C",
-				"all_extracted_text": "TSO nummer 60007301 4x16mm2 Cu 50A Øresundsvej 2C"
-			},
-			"60007293": {
-				"dimension": "4x16mm2cu",
-				"ampere": "63A",
-				"address": "Øresundsvej 2",
-				"unclassified_text": "  b ",
-				"all_extracted_text": "”- TSO nummer 60007293 4x16mm2 Cu Øresundsvej 2b 63A"
-			},
-			"60055265": {
-				"dimension": "4x16mm2cu",
-				"ampere": "50A",
-				"unclassified_text": "   2e",
-				"all_extracted_text": "TSO nummer 60055265 4x16mm2 Cu 50A 2e"
+			"09-03": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 09 -03"
 			}
 		}
 	},
-	"40-48": {},
-	"1678-6": {},
-	"2887-20": {},
-	"51-22": {},
-	"9136-6835": {
+	"21-76": {
 		"stikskilte": {
-			"60317347": {
+			"60014395": {
+				"dimension": "4X16CU",
 				"ampere": "35A",
-				"address": "Helsingevej 137",
-				"unclassified_text": " 4x16mm2  ",
-				"all_extracted_text": "T8O nummer 60317347 4x16mm2 Helsingevej 137 35 A"
+				"address": "Anemonevej 11",
+				"unclassified_text": null,
+				"all_extracted_text": "TSO 60014395 4x16 cu Anemonevej 11 35 A"
+			},
+			"60016021": {
+				"dimension": "4X16CU",
+				"ampere": "35A",
+				"address": "Anemonevej 9",
+				"unclassified_text": null,
+				"all_extracted_text": "60016021 4x16 cu Anemonevej 9 35 A"
+			}
+		}
+	},
+	"6-10": {
+		"strækningsskilte": {
+			"6-1": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 6-1"
+			}
+		}
+	},
+	"16-02": {
+		"stikskilte": {
+			"60083415": {
+				"dimension": "4X10CU",
+				"ampere": "35A",
+				"address": "Kildeskovsvej 86",
+				"unclassified_text": "  F ",
+				"all_extracted_text": "TSO nummer 60083415 4x10mm2 Cu Kildeskovsvej 86F 35A"
+			},
+			"60053409": {
+				"dimension": "4X10CU",
+				"ampere": "35A",
+				"address": "Kildeskovsvej 86",
+				"unclassified_text": "  E ",
+				"all_extracted_text": "TSO nummer 60053409 4x10mm2 Cu Kildeskovsvej 86E 35A"
+			}
+		},
+		"strækningsskilte": {
+			"16-01": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab16-01"
+			}
+		}
+	},
+	"24-30": {
+		"strækningsskilte": {
+			"24-06": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 24-06"
+			},
+			"24-31": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 24-31"
+			}
+		}
+	},
+	"9-34": {
+		"strækningsskilte": {
+			"09-33": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 09 -33"
+			}
+		}
+	},
+	"5-24": {},
+	"12664": {
+		"n_delt_skab": {
+			"612672-4": {
+				"ampere": "95A",
+				"address": "Englandsvej 350",
+				"unclassified_text": " 3x240/l-Cu  315A",
+				"all_extracted_text": "'6D.Skab 12672-4 3x240/95 Al-Cu Englandsvej 350 315A"
+			},
+			"416493-4": {
+				"ampere": "95A",
+				"unclassified_text": " 3x240/l. Englandsvej ovf. Gemmas Allie Cu . 315A",
+				"all_extracted_text": "            4D.Skab 16493- 4 3x240/95 Al. Englandsvej ovf. Gemmas Allie Cu . 315A"
+			}
+		}
+	},
+	"3908-2": {
+		"stikskilte": {
+			"68287587": {
+				"dimension": "4X75CU",
+				"ampere": "25A",
+				"address": "Salsægirdsvej 3",
+				"unclassified_text": "  /45D0D Al  ",
+				"all_extracted_text": "68287587 4x75 Cu /45D0D Al Salsægirdsvej 3 25 A"
+			}
+		},
+		"strækningsskilte": {
+			"3908-3": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 3908 - 3"
+			},
+			"3908-1": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 3908 - 1"
 			}
 		}
 	},
@@ -713,21 +660,171 @@
 			}
 		}
 	},
+	"9222-2": {},
+	"40-51": {},
+	"4-01": {},
+	"06-04": {
+		"stikskilte": {
+			"60004037": {
+				"dimension": "4X16CU",
+				"ampere": "50A",
+				"address": "Strandvejen 322",
+				"unclassified_text": null,
+				"all_extracted_text": "TSO nummer 60004037 Strandvejen 322 4x16mm2 Cu 50A"
+			},
+			"60035064": {
+				"dimension": "4X16CU",
+				"ampere": "35A",
+				"address": "Strandvejen 397",
+				"unclassified_text": null,
+				"all_extracted_text": "TSO nummer 60035064 4x16mm2 Cu 35A Strandvejen 397"
+			},
+			"60018235": {
+				"dimension": "4X16CU",
+				"ampere": "35A",
+				"address": "Strandvejen 324",
+				"unclassified_text": null,
+				"all_extracted_text": "TSO nummer 60018235 4x16mm2 Cu Strandvejen 324 35A"
+			}
+		},
+		"strækningsskilte": {
+			"6-03": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 6-03"
+			},
+			"6-05": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 6-05"
+			}
+		}
+	},
+	"17-07": {
+		"strækningsskilte": {
+			"17-01": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 17 -01"
+			}
+		}
+	},
+	"4-27": {},
+	"11-9": {
+		"stikskilte": {
+			"60014385": {
+				"dimension": "4X16CU",
+				"ampere": "63A",
+				"address": "Strandvejen 110",
+				"unclassified_text": " \"' D . ",
+				"all_extracted_text": "TSO nummer KE i . 60014385 \"4x16mm2Cu' Strandvejen 110D . 63A"
+			}
+		}
+	},
+	"4943-3": {
+		"strækningsskilte": {
+			"4943-04": {
+				"unclassified_text": ".",
+				"all_extracted_text": "Skab 4943-04."
+			}
+		},
+		"stikskilte": {
+			"60949019": {
+				"dimension": "4X95AL",
+				"ampere": "125A",
+				"address": "Holm 2",
+				"unclassified_text": " .,u Wålger \" ",
+				"all_extracted_text": "TSQ nummer ki 60949019 .,4x95 Alu WålgerHolm 2 \" 125A"
+			}
+		}
+	},
+	"13-12": {},
+	"40-53": {},
+	"19-43": {},
+	"1678-6": {},
+	"2887-20": {},
+	"36333": {},
+	"17-11": {},
+	"16-36": {},
+	"32-05": {
+		"strækningsskilte": {
+			"32-06": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 32-06"
+			},
+			"32-04": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 32-04"
+			}
+		},
+		"stikskilte": {
+			"60055635": {
+				"dimension": "4X16CU",
+				"ampere": "63A",
+				"address": "Krog 2",
+				"unclassified_text": "  Stades  ",
+				"all_extracted_text": "TSO nummer 60055635 4x16mm2 Cu Stades Krog 2 63A"
+			},
+			"60008836": {
+				"dimension": "4X16CU",
+				"ampere": "63A",
+				"address": "Krog 4",
+				"unclassified_text": "  Stades A ",
+				"all_extracted_text": "TSO nummer 60008836 4x16mm2 Cu Stades Krog 4A 63A"
+			}
+		}
+	},
+	"40-52": {},
+	"23-07": {
+		"strækningsskilte": {
+			"23-06": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 23-06"
+			}
+		},
+		"stikskilte": {
+			"60046587": {
+				"dimension": "4X16CU",
+				"ampere": "50A",
+				"address": "Hovedgade 64",
+				"unclassified_text": "  Lyngby  ",
+				"all_extracted_text": "TSO 60046587 4x16mm2 Cu Lyngby Hovedgade 64 50A"
+			}
+		}
+	},
+	"16-62": {},
+	"4-10": {
+		"strækningsskilte": {
+			"4-18": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab4 -18"
+			}
+		}
+	},
+	"35-34": {},
+	"19-21": {
+		"stikskilte": {
+			"60025212": {
+				"dimension": "4X16CU",
+				"ampere": "25A",
+				"address": "Hundesøvej 1",
+				"unclassified_text": null,
+				"all_extracted_text": "TSO nummer 60025212 Hundesøvej 1   4x16mm2 Cu 25A"
+			}
+		}
+	},
 	"446-33": {
 		"stikskilte": {
 			"60198780": {
-				"dimension": "4x16mm2cu",
+				"dimension": "4X16CU",
 				"unclassified_text": "  skovager 25",
 				"all_extracted_text": "750 . 60198780 4x16mm2 Cu skovager 25"
 			},
 			"60185737": {
-				"dimension": "4x16mm2cu",
+				"dimension": "4X16CU",
 				"ampere": "35A",
 				"unclassified_text": "  skovager 20 ",
 				"all_extracted_text": "To 60185737 4x16mm2 Cu skovager 20 35A"
 			},
 			"60198788": {
-				"dimension": "4x16mm2cu",
+				"dimension": "4X16CU",
 				"ampere": "35A",
 				"unclassified_text": "  sko! ger 27 ",
 				"all_extracted_text": "TSO nu 60198788 4x16mm2 Cu sko! ger 27 35 A"
@@ -740,96 +837,89 @@
 			}
 		}
 	},
-	"43-3": {},
-	"12664": {
-		"n_delt_skab": {
-			"612672-4": {
-				"ampere": "95A",
-				"address": "Englandsvej 350",
-				"unclassified_text": " 3x240/l-Cu  315A",
-				"all_extracted_text": "'6D.Skab 12672-4 3x240/95 Al-Cu Englandsvej 350 315A"
+	"36-1": {
+		"strækningsskilte": {
+			"36-21": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 36 -21"
 			},
-			"416493-4": {
-				"ampere": "95A",
-				"unclassified_text": " 3x240/l. Englandsvej ovf. Gemmas Allie Cu . 315A",
-				"all_extracted_text": "            4D.Skab 16493- 4 3x240/95 Al. Englandsvej ovf. Gemmas Allie Cu . 315A"
+			"36-06": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 36 -06"
 			}
 		},
-		"strækningsskilte": {
-			"16350-6": {
-				"ampere": "95A",
-				"unclassified_text": " 3x240/l-Cu - Gemmas Alle-Englandsvej",
-				"all_extracted_text": "\"&D.Skab 16350-6 3x240/95 Al-Cu - Gemmas Alle-Englandsvej"
-			},
-			"12667-2": {
-				"ampere": "95A",
-				"address": "Englandsvej 315",
-				"unclassified_text": " 3x240/l-Cu   Ved Gærdet - A",
-				"all_extracted_text": "    AD.Skab 12667-2 3x240/95 Al-Cu   Ved Gærdet - Englandsvej 315A"
-			}
-		}
-	},
-	"21-76": {
 		"stikskilte": {
-			"60014395": {
-				"dimension": "4x16cu",
-				"ampere": "35A",
-				"address": "Anemonevej 11",
-				"unclassified_text": null,
-				"all_extracted_text": "TSO 60014395 4x16 cu Anemonevej 11 35 A"
-			},
-			"60016021": {
-				"dimension": "4x16cu",
-				"ampere": "35A",
-				"address": "Anemonevej 9",
-				"unclassified_text": null,
-				"all_extracted_text": "60016021 4x16 cu Anemonevej 9 35 A"
-			}
-		},
-		"strækningsskilte": {
-			"21-77": {
-				"unclassified_text": null,
-				"all_extracted_text": "'Skab 21-77"
-			},
-			"21-75": {
-				"unclassified_text": null,
-				"all_extracted_text": "'Skab 21-75"
-			}
-		}
-	},
-	"4-10": {
-		"strækningsskilte": {
-			"4-18": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab4 -18"
-			}
-		}
-	},
-	"4-27": {},
-	"19-21": {
-		"stikskilte": {
-			"60025212": {
-				"dimension": "4x16mm2cu",
+			"60666888": {
 				"ampere": "25A",
-				"address": "Hundesøvej 1",
-				"unclassified_text": null,
-				"all_extracted_text": "TSO nummer 60025212 Hundesøvej 1   4x16mm2 Cu 25A"
-			}
-		}
-	},
-	"9222-2": {},
-	"24-30": {
-		"strækningsskilte": {
-			"24-06": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 24-06"
+				"unclassified_text": " 2x10mm2 UB ",
+				"all_extracted_text": "TSO nummer 60666888 2x10mm2 UB 25A"
 			},
-			"24-31": {
-				"unclassified_text": null,
-				"all_extracted_text": "Skab 24-31"
+			"60666868": {
+				"ampere": "35A",
+				"unclassified_text": " 2x6mm2 Teknisk anlæg, Lysregulering ",
+				"all_extracted_text": "nummer 60666868 2x6mm2 Teknisk anlæg, Lysregulering 35A"
 			}
 		}
 	},
-	"29-42": {},
-	"4-01": {}
+	"5-27": {},
+	"61568": {
+		"stikskilte": {
+			"61625954": {
+				"unclassified_text": " 23. i",
+				"all_extracted_text": "Som 61625954 23. i"
+			}
+		}
+	},
+	"36996": {
+		"stikskilte": {
+			"61084624": {
+				"dimension": "4X95CU",
+				"ampere": "150A",
+				"address": "Bredgade 65",
+				"unclassified_text": "  /4xl  224 A",
+				"all_extracted_text": "TSO nummer 61084624 4x95 Cu /4x150 Al Bredgade 65 224 A"
+			}
+		}
+	},
+	"12-23": {
+		"stikskilte": {
+			"68216009": {
+				"unclassified_text": " saungnu OSL",
+				"all_extracted_text": "no 48 4/H 68216009 saungnu OSL"
+			}
+		}
+	},
+	"4445-20": {},
+	"24-03": {
+		"stikskilte": {
+			"60332857": {
+				"dimension": "4X16CU",
+				"ampere": "25A",
+				"address": "Hovedgade 82",
+				"unclassified_text": " ”  Søbdårg  ",
+				"all_extracted_text": "FSO nummer 60332857 ” 4x16mm2 Cu Søbdårg Hovedgade 82 25A"
+			},
+			"60034266": {
+				"dimension": "4X25CU",
+				"ampere": "80A",
+				"address": "Hovedgade 84",
+				"unclassified_text": " NE  Søborg  ",
+				"all_extracted_text": "TSO nummer a 60034266 NE 4x25mm2 Cu Søborg Hovedgade 84 80A"
+			},
+			"60382557": {
+				"unclassified_text": " Søborg Hovedgade",
+				"all_extracted_text": "60382557 Søborg Hovedgade"
+			}
+		},
+		"strækningsskilte": {
+			"24-02": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 24-02"
+			},
+			"24-04": {
+				"unclassified_text": null,
+				"all_extracted_text": "Skab 24-04"
+			}
+		}
+	}
 }
