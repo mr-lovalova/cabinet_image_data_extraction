@@ -322,59 +322,117 @@
 			"60211499": {
 				"dimension": "4X10CU",
 				"ampere": "35A",
-				"address": "Kongevej 20",
-				"unclassified_text": "  Usserød  ",
-				"all_extracted_text": "TSO nummer 60211499 4x10mm2 Cu Usserød Kongevej 20 35 A"
+				"address": "Usserød Kongevej 20"
 			}
+		},
+		"strækningsskilte": {
+			"1904-64": {}
 		}
 	},
-	"41-03": {},
-	"1681-24": {},
-	"9084-61": {},
+	"41-03": {
+		"stikskilte": {
+			"60187610": {
+				"dimension": "4X10CU",
+				"ampere": "35A",
+				"address": "Høsterkøb byvej 25"
+			},
+			"60184738": {
+				"dimension": "4X16CU",
+				"ampere": "50A",
+				"address": "Høsterkøb byvej 19"
+			}
+		},
+		"transformer_nord": {
+			"T.41-B": {
+				"dimension": null,
+				"address": "Ovf. Bakkediget"
+			}
+		},
+		"strækningsskilte": {
+			"41-04": {}
+		}
+	},
+	"1681-24": {
+		"TODO": "no objects?"
+	},
+	"9084-61": {
+		"TODO": "object missing, and white labels"
+	},
 	"9136-6835": {
 		"stikskilte": {
 			"60317347": {
+				"dimension": null,
 				"ampere": "35A",
-				"address": "Helsingevej 137",
-				"unclassified_text": " 4x16mm2  ",
-				"all_extracted_text": "T8O nummer 60317347 4x16mm2 Helsingevej 137 35 A"
+				"address": "Helsingevej 137"
+			},
+			"61896030": {
+				"dimension": null,
+				"ampere": "25A",
+				"address": null
 			}
+		},
+		"strækningsskilte": {
+			"9136-6836": {}
 		}
 	},
-	"19-11": {},
+	"19-11": {
+		"stikskilte": {
+			"60004340": {
+				"dimension": "4X16CU",
+				"ampere": "25A",
+				"address": "Ermelundsvej 114B"
+			},
+			"60004383": {
+				"dimension": "4X16CU",
+				"ampere": "25A",
+				"address": "Ermelundsvej 114D"
+			},
+			"60004377": {
+				"dimension": "4X16CU",
+				"ampere": "25A",
+				"address": "Ermelundsvej 114E"
+			},
+			"60004337": {
+				"dimension": "4X16CU",
+				"ampere": "25A",
+				"address": "Ermelundsvej 114A"
+			},
+			"60004360": {
+				"dimension": "4X16CU",
+				"ampere": "25A",
+				"address": "Ermelundsvej 114A"
+			},
+	},
 	"1-14": {},
 	"5-23": {
+		"strækningsskilte": {
+			"5-24": {
+			},
+			"5-22": {}},
 		"stikskilte": {
 			"60007488": {
 				"dimension": "4X16CU",
 				"ampere": "35A",
 				"address": "Bellevuevej 13-15",
-				"unclassified_text": null,
-				"all_extracted_text": "60007488 4x16CU Bellevuevej 13-15 35 A"
 			},
 			"60013308": {
 				"dimension": "4X16CU",
 				"ampere": "80A",
 				"address": "Strandvejen 429",
-				"unclassified_text": " \"   ",
-				"all_extracted_text": "60013308 \" 4X16CU Strandvejen 429 80A"
 			},
 			"60051072": {
 				"dimension": "4X16CU",
 				"ampere": "25A",
 				"address": "Bellevuevej 9-11",
-				"unclassified_text": null,
-				"all_extracted_text": ". 60051072 4x16CU Bellevuevej 9-11 25 A"
 			},
 			"61772267": {
 				"dimension": "4X16CU",
 				"ampere": "25A",
 				"address": "Bellevuevej 17",
-				"unclassified_text": null,
-				"all_extracted_text": "TSO nu r 61772267 4x16 Cu Bellevuevej 17 25 A"
 			}
 		}
 	},
+	"checkpoint": "",
 	"2927-39": {
 		"strækningsskilte": {
 			"2927-38": {
