@@ -1,8 +1,8 @@
+import os
 import json
+from pathlib import Path
 import torch
 import click
-import os
-from pathlib import Path
 from PIL import Image
 from box import Box
 import items
@@ -45,7 +45,7 @@ def cli(path, num_images, conf, verbose, save):  # rename dir path
                 if verbose:
                     click.echo(f"Doing inference on image at: {location}")
                     click.echo(f"Detected {len(cropped)} labels")
-                for count, crop in enumerate(cropped):
+                for crop in cropped:
                     prediction, _ = crop["label"].split()  # old/yellow/black
                     if prediction != "black":  # temp until new model without y/b
                         continue
