@@ -20,5 +20,10 @@ def create_label(image, **_ignored):
     return label(id_, resolution, parsed=parsed)
 
 
+def create_cabinet_type():
+    """for future extraxtion of cabinet type"""
+    pass
+
+
 factory = ObjectFactory()
 factory.register_builder("black", create_label)

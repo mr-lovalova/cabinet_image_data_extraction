@@ -1,7 +1,6 @@
 import re
-from .helpers import merge
+from helpers import merge, ObjectFactory
 from .parser import LabelParser
-from helpers import ObjectFactory
 
 
 identifyers = {
