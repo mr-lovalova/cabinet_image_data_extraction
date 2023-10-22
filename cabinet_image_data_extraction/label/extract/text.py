@@ -2,19 +2,7 @@ import pytesseract
 import cv2
 import numpy as np
 
-
-def rotate_image(image, angle):
-    image_center = tuple(np.array(image.shape[1::-1]) / 2)
-    rot_mat = cv2.getRotationMatrix2D(image_center, angle, 1.0)
-    result = cv2.warpAffine(
-        image,
-        rot_mat,
-        image.shape[1::-1],
-        flags=cv2.INTER_LINEAR,
-        borderMode=cv2.BORDER_CONSTANT,
-        borderValue=255,
-    )
-    return result
+from .rotation import horizontalize, rotate
 
 
 def mask_img(thresh, cnt):
@@ -53,8 +41,8 @@ def get_label_rotation(cnt, shape):
     rows, cols = shape
     [vx, vy, x, y] = cv2.fitLine(cnt, cv2.DIST_L2, 0, 0.01, 0.01)
     x_axis = np.array([1, 0])  # unit vector in the same direction as the x axis
-    your_line = np.array([vx, vy])  # unit vector in the same direction as your line
-    dot_product = np.dot(x_axis, your_line)
+    line = np.array([vx, vy])  # unit vector in the same direction as our line
+    dot_product = np.dot(x_axis, line)
     angle_2_x = np.degrees(np.arccos(dot_product))
     angle_2_x = float(angle_2_x)
     if vy < 0:
@@ -70,19 +58,8 @@ def clean_image(img, kernel):
     return cv2.bitwise_not(closing)
 
 
-def check_rotation(img):
-    try:
-        h, w = img.shape
-    except ValueError:
-        h, w, dim = img.shape
-    if w < h:
-        rotated = cv2.rotate(img, cv2.ROTATE_90_COUNTERCLOCKWISE)
-        return rotated
-    return img
-
-
 def process_label(cropped, label_type):
-    rotated = check_rotation(cropped)
+    rotated = horizontalize(cropped)
     shape = rotated.shape[0:2]
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
     if label_type == "black":
@@ -100,8 +77,31 @@ def process_label(cropped, label_type):
 
     angle = get_label_rotation(cnt, shape)
 
-    out = rotate_image(out, angle)
-    t_img = rotate_image(t_img, angle)
+    out = rotate(out, angle)
+    t_img = rotate(t_img, angle)
+    # out = clean_image(out, kernel)
+
+    return out, rotation_image, t_img
+
+
+def process_label2(cropped):
+    rotated = horizontalize(cropped)
+    shape = rotated.shape[0:2]
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+    thresh, rotation_image, t_img = process_black_label(rotated, kernel)
+
+    # get larges contour
+    cnts, _ = cv2.findContours(rotation_image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+    cnts = sorted(cnts, key=cv2.contourArea, reverse=True)
+    cnt = cnts[0]
+
+    out = mask_img(thresh, cnt)
+    t_img = mask_img(t_img, cnt)
+
+    angle = get_label_rotation(cnt, shape)
+
+    out = rotate(out, angle)
+    t_img = rotate(t_img, angle)
     # out = clean_image(out, kernel)
 
     return out, rotation_image, t_img
