@@ -5,7 +5,7 @@ import torch
 import click
 from PIL import Image
 from box import Box
-import objects
+import extract
 
 
 def get_img(root, file):
@@ -14,23 +14,6 @@ def get_img(root, file):
     else:
         img = None
     return img
-
-
-def extract_from_img(model, img):
-    detections = model(img).crop(save=False)
-    extractions = []
-    for crop in detections:
-        extracted = extract_from_detection(crop)
-        if extracted:
-            extractions.append(extracted)
-    return extractions
-
-
-def extract_from_detection(crop):
-    prediction, _ = crop["label"].split()  # old/yellow/black
-    if prediction != "black":  # temp until new model without y/b
-        return None
-    return objects.factory.create(prediction, image=crop["im"])
 
 
 def as_json(boxes):
@@ -68,7 +51,7 @@ def main(path, num_images, conf, verbose):  # rename dir path
             img = get_img(root, file)
             if not img:
                 continue
-            extractions = extract_from_img(model, img)
+            extractions = extract.from_img(model, img)
             for item in extractions:
                 box.add(item)
             print("BOX LABELS", box.asdict())
