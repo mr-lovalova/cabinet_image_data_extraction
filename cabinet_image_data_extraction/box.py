@@ -5,13 +5,18 @@ class Box:
         self.id = id_
         self.items = {}
 
-    def add(self, item, type_):
+    def add(self, item):
+        type_ = item.type
+        print(item)
         if type_ not in self.items:
             self.items[type_] = {}
-        if item not in self.items[type_]:
+        else:
+            print(self.items[type_])
+        if item.id not in self.items[type_]:
             self.items[type_][item.id] = item
         else:
             old_item = self.items[type_][item.id]
+            print(old_item)
             if item > old_item:
                 self.items[type_][item.id] = item
 
@@ -22,7 +27,7 @@ class Box:
         return hash(self.id)
 
     def __str__(self):
-        return f"BOX:{self.id}, {self.labels}"
+        return f"BOX:{self.id}, {self.items}"
 
     def __repr__(self):
         return f"{self.id}"
@@ -34,9 +39,9 @@ class Box:
             yield key, getattr(self, key)
 
     def asdict(self):
-        labels = {}
-        for k, v in self.labels.items():
-            labels[k] = {}
-            for l in v.values():
-                labels[k][l.id] = l.asdict()
-        return labels
+        out = {}
+        for k, item in self.items.items():
+            out[k] = {}
+            for i in item.values():
+                out[k][i.id] = i.asdict()
+        return out

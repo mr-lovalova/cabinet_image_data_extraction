@@ -1,25 +1,18 @@
 import re
 from abc import ABC, abstractmethod
+from helpers import ObjectFactory
+from item import Item
 
 
-class ObjectFactory:
-    def __init__(self):
-        self._builders = {}
-
-    def register_builder(self, key, builder):
-        self._builders[key] = builder
-
-    def create(self, key, **kwargs):
-        builder = self._builders.get(key)
-        if not builder:
-            raise ValueError(key)
-        return builder(**kwargs)
-
-
-class Label(ABC):
+class Label(Item):
     def __init__(self, id_, resolution):
         self.id = id_
         self.resolution = resolution
+
+    @property
+    @abstractmethod
+    def type(self):
+        pass
 
     def __eq__(self, other):
         return self.id == other.id
@@ -45,6 +38,10 @@ class StikSkilt(Label):
         self.ampere = parsed.get("ampere", None)
         self.dimension = parsed.get("dimension", None)
 
+    @property
+    def type(self):
+        return "STIKSKILT"
+
 
 class StikSkiltBuilder:
     def __call__(self, id_, resolution, parsed, **_ignored):
@@ -54,6 +51,10 @@ class StikSkiltBuilder:
 class StrækningsSkilt(Label):
     def __init__(self, id_, resolution):
         super().__init__(id_, resolution)
+
+    @property
+    def type(self):
+        return "STRÆKNINGSSKILT"
 
 
 class StrækningsSkiltBuilder:
@@ -68,6 +69,10 @@ class DeltSkab(Label):
         self.ampere = parsed.get("ampere", None)
         self.dimension = parsed.get("dimension", None)
         # antal delinger e.g. 7 d
+
+    @property
+    def type(self):
+        return "DELT_SKAB"
 
 
 class DeltSkabBuilder:
