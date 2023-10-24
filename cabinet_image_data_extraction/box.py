@@ -7,16 +7,12 @@ class Box:
 
     def add(self, item):
         type_ = item.type
-        print(item)
         if type_ not in self.items:
             self.items[type_] = {}
-        else:
-            print(self.items[type_])
         if item.id not in self.items[type_]:
             self.items[type_][item.id] = item
         else:
             old_item = self.items[type_][item.id]
-            print(old_item)
             if item > old_item:
                 self.items[type_][item.id] = item
 

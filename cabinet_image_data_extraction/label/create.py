@@ -15,4 +15,6 @@ def label(image, **_ignored):
     id_ = parser.extract_id(text)
     parsed = parser.parse(parser.remainder)
     label = factory.create(format_)
-    return label(id_, resolution, parsed=parsed)
+    label = label(id_, resolution, parsed=parsed)
+    label.img, label.clean_img, label.text = image, t_img, text
+    return label

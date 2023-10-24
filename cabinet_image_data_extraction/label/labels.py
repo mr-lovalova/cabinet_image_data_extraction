@@ -8,6 +8,9 @@ class Label(Item):
     def __init__(self, id_, resolution):
         self.id = id_
         self.resolution = resolution
+        self.img = None
+        self.clean_img = None
+        self.text = ""
 
     @property
     @abstractmethod
@@ -28,6 +31,8 @@ class Label(Item):
         out = dict(vars(self))
         out.pop("id")
         out.pop("resolution")
+        out.pop("img")
+        out.pop("clean_img")
         return out
 
 
