@@ -20,10 +20,10 @@ def mask_img(thresh, cnt):
     return out
 
 
-def process_black_label(img, kernel):
+def process_black_label_good(img, kernel):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     invert = cv2.bitwise_not(gray)
-    blur = cv2.GaussianBlur(gray, (3, 3), 0)
+    blur = cv2.GaussianBlur(gray, kernel, 0)
     _, thresh = cv2.threshold(blur, 160, 255, cv2.THRESH_BINARY_INV)
     _, rotation_image = cv2.threshold(gray, 120, 255, cv2.THRESH_BINARY_INV)
     ### adaptive ?
@@ -61,9 +61,9 @@ def clean_image(img, kernel):
 def process_label(cropped, label_type):
     rotated = horizontalize(cropped)
     shape = rotated.shape[0:2]
-    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+    kernel_size = (3, 3)
     if label_type == "black":
-        thresh, rotation_image, t_img = process_black_label(rotated, kernel)
+        thresh, rotation_image, t_img = process_black_label(rotated, kernel_size)
     else:
         return None, None, None
 
@@ -84,30 +84,7 @@ def process_label(cropped, label_type):
     return out, rotation_image, t_img
 
 
-def process_label2(cropped):
-    rotated = horizontalize(cropped)
-    shape = rotated.shape[0:2]
-    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
-    thresh, rotation_image, t_img = process_black_label(rotated, kernel)
-
-    # get larges contour
-    cnts, _ = cv2.findContours(rotation_image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
-    cnts = sorted(cnts, key=cv2.contourArea, reverse=True)
-    cnt = cnts[0]
-
-    out = mask_img(thresh, cnt)
-    t_img = mask_img(t_img, cnt)
-
-    angle = get_label_rotation(cnt, shape)
-
-    out = rotate(out, angle)
-    t_img = rotate(t_img, angle)
-    # out = clean_image(out, kernel)
-
-    return out, rotation_image, t_img
-
-
-def extract_text(img, conf=0.85):
+def extract_text(img, conf=0.6):
     df = pytesseract.image_to_data(
         img,
         lang="dan",
@@ -118,3 +95,68 @@ def extract_text(img, conf=0.85):
     words = df.text.tolist()
     text = " ".join([str(word) for word in words])
     return text
+
+
+def process_label2(cropped):
+    rotated = horizontalize(cropped)
+    shape = rotated.shape[0:2]
+    kernel_size = (1, 1)  ## change depending on resolution?
+    invert, rotation_image, t_img = process_black_label(rotated, kernel_size)
+
+    # get larges contour
+    cnts, _ = cv2.findContours(rotation_image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+    cnts = sorted(cnts, key=cv2.contourArea, reverse=True)
+    cnt = cnts[0]
+
+    out = mask_img(invert, cnt)
+    t_img = mask_img(t_img, cnt)
+
+    angle = get_label_rotation(cnt, shape)
+
+    out = rotate(out, angle)
+    t_img = rotate(t_img, angle)
+    # out = clean_image(out, kernel)
+
+    return out, t_img, out
+
+
+def get_label_contour(img):
+    # we assume the largest contour on the img is the label.
+    cnts, _ = cv2.findContours(img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+    cnts = sorted(cnts, key=cv2.contourArea, reverse=True)
+    return cnts[0]
+
+
+def process(crop):
+    horizontal = horizontalize(crop)
+    invert = get_invert(horizontal)
+    _, thresh = cv2.threshold(invert, 175, 255, cv2.THRESH_BINARY)
+    contour = get_label_contour(thresh)
+
+    out = mask_img(invert, contour)
+    angle = get_label_rotation(contour, horizontal.shape[0:2])
+    out = rotate(out, angle)
+    return out
+
+
+def get_invert(img):
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    invert = cv2.bitwise_not(gray)
+    return invert
+
+
+def process_black_label(img, kernel):
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    invert = cv2.bitwise_not(gray)
+    blur = cv2.GaussianBlur(gray, kernel, 0)
+    _, thresh = cv2.threshold(blur, 160, 255, cv2.THRESH_BINARY_INV)
+    _, rotation_image = cv2.threshold(gray, 120, 255, cv2.THRESH_BINARY_INV)
+    ### adaptive ?
+    # invert = cv2.bitwise_not(gray)
+    # rotation_image = cv2.adaptiveThreshold(
+    #   invert, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 21, 10
+    # )
+    ###
+    # rotation_image = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    _, text_img = cv2.threshold(gray, 175, 255, cv2.THRESH_BINARY_INV)
+    return invert, rotation_image, text_img

@@ -8,9 +8,5 @@ class Item(ABC):
         pass
 
     @abstractmethod
-    def asdict(self):
-        pass
-
-    @abstractmethod
     def __gt__(self, other):
         pass

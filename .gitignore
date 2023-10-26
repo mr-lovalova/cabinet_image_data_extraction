@@ -1,5 +1,6 @@
 /.vscode
 /results
+/results2
 results.json
 /__pycache__
 /models

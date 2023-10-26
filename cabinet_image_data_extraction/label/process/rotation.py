@@ -27,3 +27,17 @@ def rotate(image, angle):
         borderValue=255,
     )
     return result
+
+
+def get_label_rotation(cnt, shape):
+    rows, cols = shape
+    [vx, vy, x, y] = cv2.fitLine(cnt, cv2.DIST_L2, 0, 0.01, 0.01)
+    x_axis = np.array([1, 0])  # unit vector in the same direction as the x axis
+    line = np.array([vx, vy])  # unit vector in the same direction as our line
+    dot_product = np.dot(x_axis, line)
+    angle_2_x = np.degrees(np.arccos(dot_product))
+    angle_2_x = float(angle_2_x)
+    if vy < 0:
+        angle_2_x = -angle_2_x
+
+    return angle_2_x

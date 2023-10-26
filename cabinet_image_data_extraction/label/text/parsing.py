@@ -2,7 +2,7 @@ import re
 from helpers import merge, ObjectFactory
 from .parser import LabelParser
 
-
+5 - 24
 identifyers = {
     # all
     "STIKSKILT": re.compile(r"6\d{7}"),
@@ -12,7 +12,8 @@ identifyers = {
     ),
     # all
     "STRÆKNINGSSKILT": re.compile(
-        r"^(Skab|SKAB)\s?\d{1,5}\s?-\s?\d{1,4}"  # TODO r"Skab\s?\d{1,5}\s?-\s?\d{1,4}" differentier mlm. ukorrekt ndelt og strækningskilt
+        r"^(skab)\s?\d{1,5}\s?-\s?\d{1,4}",
+        re.IGNORECASE,  # TODO r"Skab\s?\d{1,5}\s?-\s?\d{1,4}" differentier mlm. ukorrekt ndelt og strækningskilt
     ),  # TODO hvor mange digits efter bindestreg? # TODO Kan man adskille udføringsskab og strækningsskab? # TODO blandes sammen med delte skabe
 }
 

@@ -1,14 +1,24 @@
 from .labels import factory
 from .extract.text import extract_text, process_label2
+from .process.process import process, process2
 from label.text import parsing
 
 
+def do_logging(_ignored, og_img, processed, text, found):
+    log = _ignored["log"]
+    log.add(og_img, "crop", found)
+    log.add(processed, "clean", found)
+    log.add(text, "text", found)
+
+
 def label(image, **_ignored):
-    clean_img, rot, t_img = process_label2(image)
-    # text = extract_text(clean_img) # TODO bedst med eller uden blur ? clean_img, vs text_img
-    resolution = clean_img.shape[0] * clean_img.shape[1]
-    text = extract_text(t_img)
+    img = process(image)
+    resolution = img.shape[0] * img.shape[1]
+    text = extract_text(img)
     format_ = parsing.get_format(text)
+
+    do_logging(_ignored, image, img, text, found=bool(format_))
+
     if not format_:
         return None
     parser = parsing.factory.get(format_)
@@ -16,5 +26,5 @@ def label(image, **_ignored):
     parsed = parser.parse(parser.remainder)
     label = factory.create(format_)
     label = label(id_, resolution, parsed=parsed)
-    label.img, label.clean_img, label.text = image, t_img, text
+    label.img, label.clean_img, label.blur, label.text = image, img, img, text
     return label

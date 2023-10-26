@@ -8,9 +8,6 @@ class Label(Item):
     def __init__(self, id_, resolution):
         self.id = id_
         self.resolution = resolution
-        self.img = None
-        self.clean_img = None
-        self.text = ""
 
     @property
     @abstractmethod
@@ -74,6 +71,7 @@ class DeltSkab(Label):
         self.ampere = parsed.get("ampere", None)
         self.dimension = parsed.get("dimension", None)
         # antal delinger e.g. 7 d
+        # inherit from skab?
 
     @property
     def type(self):

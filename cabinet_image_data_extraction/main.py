@@ -6,6 +6,7 @@ import click
 from PIL import Image
 from box import Box
 import extract
+from logger import Logger
 
 
 def get_img(root, file):
@@ -27,17 +28,6 @@ def save(json_, folder):
     destination = folder + "results.json"
     with open(destination, "w", encoding="utf-8") as outfile:
         outfile.write(json_)
-
-
-def log_item(item, folder, box_id, count):
-    destination = folder + box_id + "/"
-    Path(destination).mkdir(exist_ok=True)
-    Image.fromarray(item.clean_img).save(destination + f"{str(count)}clean.jpg")
-    Image.fromarray(item.img).save(destination + f"{str(count)}original.jpg")
-    item.clean_img = None
-    item.img = None
-    with open(destination + f"{str(count)}.txt", "w", encoding="utf-8") as f:
-        f.write(item.text)
 
 
 def setup(path, conf, dest):
@@ -66,18 +56,20 @@ def main(path, num_images, conf, verbose, dest="results2/"):  # rename dir path
         id_ = root.split("/")[-1]
         box = Box(id_)
         boxes.add(box)
+        print("BOX ID", id_)
+        logger = Logger(dest, id_)
         for file in files:
             img = get_img(root, file)
             if not img:
                 continue
-            extractions = extract.from_img(model, img)
-            for count, item in enumerate(extractions):
-                log_item(item, dest, id_, count)
+            extractions = extract.from_img(model, img, logger)
+            for item in extractions:
                 box.add(item)
-            print("BOX LABELS", box.asdict())
+            logger.save()
+            logger.log()
 
-    json_ = as_json(boxes)
-    save(json_, dest)
+    # json_ = as_json(boxes)
+    # save(json_, dest)
 
 
 if __name__ == "__main__":
