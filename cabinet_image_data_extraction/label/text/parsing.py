@@ -2,7 +2,6 @@ import re
 from helpers import merge, ObjectFactory
 from .parser import LabelParser
 
-5 - 24
 identifyers = {
     # all
     "STIKSKILT": re.compile(r"6\d{7}"),

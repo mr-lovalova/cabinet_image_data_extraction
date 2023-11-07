@@ -56,13 +56,12 @@ def main(path, num_images, conf, verbose, dest="results2/"):  # rename dir path
         id_ = root.split("/")[-1]
         box = Box(id_)
         boxes.add(box)
-        print("BOX ID", id_)
-        logger = Logger(dest, id_)
+        logger = Logger(dest, id_) # Maybe tchange loggre to do all saving insetad of usingset of pxoes
         for file in files:
             img = get_img(root, file)
             if not img:
                 continue
-            extractions = extract.from_img(model, img, logger)
+            extractions = extract.from_img(model, img, logger=logger)
             for item in extractions:
                 box.add(item)
             logger.save()

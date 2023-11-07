@@ -4,20 +4,20 @@ from .process.process import process, process2
 from label.text import parsing
 
 
-def do_logging(_ignored, og_img, processed, text, found):
-    log = _ignored["log"]
-    log.add(og_img, "crop", found)
-    log.add(processed, "clean", found)
-    log.add(text, "text", found)
+def do_logging(og_img, processed, text, found, **ignored):
+    logger = ignored["logger"]
+    logger.add(og_img, "crop", found)
+    logger.add(processed, "clean", found)
+    logger.add(text, "text", found)
 
 
-def label(image, **_ignored):
+def label(image, **ignored):
     img = process(image)
     resolution = img.shape[0] * img.shape[1]
     text = extract_text(img)
     format_ = parsing.get_format(text)
 
-    do_logging(_ignored, image, img, text, found=bool(format_))
+    do_logging(image, img, text, found=bool(format_), **ignored)
 
     if not format_:
         return None

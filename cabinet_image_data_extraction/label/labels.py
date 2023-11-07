@@ -28,8 +28,6 @@ class Label(Item):
         out = dict(vars(self))
         out.pop("id")
         out.pop("resolution")
-        out.pop("img")
-        out.pop("clean_img")
         return out
 
 

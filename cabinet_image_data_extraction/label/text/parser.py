@@ -1,7 +1,8 @@
 from abc import ABC, abstractmethod
 import re
 
-from .filters import filters, maps
+from .filters import filters
+from .mappings import mappings
 
 
 class LabelParser(ABC):
@@ -51,6 +52,6 @@ class LabelParser(ABC):
     def _clean_extracted(self, key, replacement):
         """Filters unwanted signs and maps to shared format"""
         cleaned = filter(filters[key], enumerate(replacement))
-        cleaned = map(maps[key], cleaned)
+        cleaned = map(mappings[key], cleaned)
         cleaned = "".join(cleaned)
         return cleaned

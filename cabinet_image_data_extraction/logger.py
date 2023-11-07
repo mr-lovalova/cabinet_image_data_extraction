@@ -1,5 +1,9 @@
 from pathlib import Path
 from PIL import Image
+from helpers import ObjectFactory
+
+
+# implement as with factories instead of this yikes
 
 
 class Logger:
@@ -71,3 +75,56 @@ class Logger:
                 else:
                     path = not_found_path + f"{str(count)}{key}.jpg"
                     Image.fromarray(value).save(path)
+
+    def log2(self, logable, format_):
+        folder, id_
+        # Logable: box, image, text etc. ?
+        logger = factory.create(format_)
+        logable.log(logger)
+        return logger.to_str()
+
+    # add abstract log method to all items? and box?
+
+
+    def serialize(self, serializer, folder, id_):
+        serializer.start_object('song', self.song_id)
+        serializer.add_property('title', self.title)
+        serializer.add_property('artist', self.artist)
+
+class ImgLogger:
+    def __init__(self):
+        self._img = None
+
+    def ensure_path(self, object_name, object_id):
+        #self._element = et.Element(object_name, attrib={'id': object_id})
+        pass
+
+    def add_property(self, name, value):
+        # prop = et.SubElement(self._element, name)
+        # prop.text = value
+        pass
+
+    def to_str(self):
+        pass
+        # return et.tostring(self._element, encoding='unicode')
+
+class TextLogger:
+    def __init__(self):
+        self._element = None
+
+    def start_object(self, object_name, object_id):
+        #self._element = et.Element(object_name, attrib={'id': object_id})
+        pass
+
+    def add_property(self, name, value):
+        # prop = et.SubElement(self._element, name)
+        # prop.text = value
+        pass
+
+    def to_str(self):
+        pass
+        # return et.tostring(self._element, encoding='unicode')
+
+factory = ObjectFactory()
+# factory.register_format("JSON", JsonSerializer)
+# factory.register_format("XML", XmlSerializer)
