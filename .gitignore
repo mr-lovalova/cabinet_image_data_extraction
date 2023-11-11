@@ -1,6 +1,8 @@
 /.vscode
 /results
 /results2
+/results3
+/data
 results.json
 /models
 results_check.json

@@ -3,41 +3,29 @@ class Box:
 
     def __init__(self, id_) -> None:
         self.id = id_
-        self.items = {}
+        # self.items = {}
+        self.labels = []
+        self.model = None
+        self.capacity = None
 
     def add(self, item):
-        type_ = item.type
-        if type_ not in self.items:
-            self.items[type_] = {}
-        if item.id not in self.items[type_]:
-            self.items[type_][item.id] = item
+        # instad of this shit
+        # change to factory style before adding more capacity, model etc.
+        if item.type == "LABEL":
+            if item not in self.labels:
+                self.labels.append(item)
+            else:
+                # check which item to keep
+                idx = self.labels.index(item)
+                old_item = self.labels[idx]
+                if item > old_item:
+                    self.labels.pop(idx)
+                    self.labels.append(item)
         else:
-            old_item = self.items[type_][item.id]
-            if item > old_item:
-                self.items[type_][item.id] = item
+            raise NotImplementedError(item.type, " type has not been implemented yet")
 
     def __eq__(self, other):
         return self.id == other.id
 
-    def __hash__(self):
-        return hash(self.id)
-
     def __str__(self):
-        return f"BOX:{self.id}, {self.items}"
-
-    def __repr__(self):
-        return f"{self.id}"
-
-    def __iter__(self):
-        for key in self.__dict__:
-            if key == "id":
-                continue
-            yield key, getattr(self, key)
-
-    def asdict(self):
-        out = {}
-        for k, item in self.items.items():
-            out[k] = {}
-            for i in item.values():
-                out[k][i.id] = i.asdict()
-        return out
+        return f"BOX:{self.id}"

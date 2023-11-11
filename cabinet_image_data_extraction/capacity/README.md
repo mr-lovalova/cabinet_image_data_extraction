@@ -1,1 +1,1 @@
-For Balal to put code to detect available capacity
+to put code to detect available capacity

@@ -69,6 +69,20 @@ class DeltSkabParser(LabelParser):
         return merge(dimension, ampere, address)
 
 
+class UnknownParser(LabelParser):
+    @property
+    def _id_pattern(self):
+        pass
+
+    @property
+    def _patterns(self):
+        return merge(dimension, ampere, address)
+
+    def extract_id(self, text):
+        self.remainder = text
+        return None
+
+
 class ParserProvider(ObjectFactory):
     def get(self, format_, **kwargs):
         return self.create(format_, **kwargs)
@@ -81,3 +95,4 @@ factory = ParserProvider()
 factory.register_format("STIKSKILT", StikSkiltParser)
 factory.register_format("STRÆKNINGSSKILT", StrækningSkiltParser)
 factory.register_format("DELT_SKAB", DeltSkabParser)
+factory.register_format(None, UnknownParser)

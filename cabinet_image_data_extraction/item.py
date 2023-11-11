@@ -7,17 +7,12 @@ class Item(ABC):
     def type(self):
         pass
 
+    @property
     @abstractmethod
-    def __gt__(self, other):
-        pass
-
-
-class InsideItem(Item):
-    # for all things inside the cabinet???
-    @abstractmethod
-    def __gt__(self, other):
+    def is_valid(self):
+        """should extracted information be kept or is bad quality e.g. labels with no id"""
         pass
 
     @abstractmethod
-    def log(self):
+    def __gt__(self, other):
         pass
