@@ -22,7 +22,7 @@ class Logger:
         logger = loggers.create(item.type)
         logger.start(item=item)
         logger.save(path=path)
-        # print(logger.output())
+        print(logger.output())
 
 
 class LabelLogger:
@@ -33,27 +33,36 @@ class LabelLogger:
         self.label = item
 
     def save(self, path, **ignored):
+        destination = self._get_destination(path)
+
+        file = self._create_file(destination, "text", "txt")
+        with open(file, "w") as f:
+            f.write(str(self.label))
+
         for type_, img in self.label.imgs.items():
-            if self.label.is_valid:
-                folder = str(self.label.id)
-            else:
-                folder = "UNIDENTIFIED"
-
-            destination = path + folder
-            self.ensure_path(destination)
-
-            count = 0
-            file = destination + f"/{type_}.jpg"
-            while os.path.isfile(file):
-                count += 1
-                file = destination + f"/{count}_{type_}.jpg"
-
+            file = self._create_file(destination, type_, "jpg")
             Image.fromarray(img).save(file)
 
-    def create_file_name(self, destination):
-        pass
+    def _create_file(self, destination, name, extension):
+        file = destination + f"/{name}.{extension}"
+        count = 0
+        while os.path.isfile(file):
+            count += 1
+            file = destination + f"/{count}_{name}.{extension}"
 
-    def ensure_path(self, path):
+        return file
+
+    def _get_destination(self, path):
+        if self.label.is_valid:
+            folder = str(self.label.id)
+        else:
+            folder = "UNIDENTIFIED"
+
+        destination = path + folder
+        self._ensure_path(destination)
+        return destination
+
+    def _ensure_path(self, path):
         Path(path).mkdir(parents=True, exist_ok=True)
 
     def output(self, **ignored):

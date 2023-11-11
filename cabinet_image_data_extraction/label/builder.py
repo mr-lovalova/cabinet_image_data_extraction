@@ -8,7 +8,7 @@ def builder(crop, **ignored):
     clean = process(crop)
     images = {"clean": clean, "crop": crop}
     resolution = clean.shape[0] * clean.shape[1]
-    
+
     text = extract(clean)
     format_ = parsing.get_format(text)
     parser = parsing.factory.get(format_)
@@ -18,4 +18,5 @@ def builder(crop, **ignored):
     label = label(
         id_, resolution, remainder=parser.remainder, parsed=parsed, images=images
     )
+    label.text = text  ### For debug..
     return label

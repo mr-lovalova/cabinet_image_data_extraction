@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class Item(ABC):
+class Model(ABC):
     @property
     @abstractmethod
     def type(self):

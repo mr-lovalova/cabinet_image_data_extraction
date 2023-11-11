@@ -1,4 +1,4 @@
-import factories
+import item
 
 
 def from_img(model, img, **ignored):
@@ -11,4 +11,4 @@ def from_img(model, img, **ignored):
 
 def from_detection(crop, **ignored):
     prediction, _ = crop["label"].split()  # old/yellow/black
-    return factories.item.create(prediction, crop=crop["im"], **ignored)
+    return item.factory.create(prediction, crop=crop["im"], **ignored)

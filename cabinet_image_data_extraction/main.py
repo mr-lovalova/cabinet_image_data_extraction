@@ -1,12 +1,12 @@
 import os
 import json
 from pathlib import Path
+from PIL import Image
 import torch
 import click
-from PIL import Image
+
 from box import Box
 import extract
-
 from logger import Logger
 
 
@@ -77,9 +77,8 @@ def main(path, num_images, conf, verbose, dest="results2/"):  # rename dir to pa
                     box.add(item)
                 logger.log(item)
 
-        print(box)
-        with open(results_file, "a") as myfile:
-            myfile.write(str(vars(box)) + "\n")
+        with open(results_file, "a") as f:
+            f.write(str(vars(box)) + "\n")
 
 
 if __name__ == "__main__":
