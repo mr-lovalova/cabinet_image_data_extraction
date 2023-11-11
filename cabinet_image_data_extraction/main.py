@@ -7,7 +7,7 @@ import click
 
 from box import Box
 import extract
-from logger import Logger
+import item
 
 
 def get_img(root, file):
@@ -61,7 +61,7 @@ def main(path, num_images, conf, verbose, dest="results2/"):  # rename dir to pa
     results_file = dest + "results.txt"
     start_file(results_file)
     tree = os.walk(path, topdown=False)
-    logger = Logger(dest)
+    logger = item.Logger(dest)
 
     for root, _, files in tree:
         id_ = root.split("/")[-1]
@@ -72,10 +72,10 @@ def main(path, num_images, conf, verbose, dest="results2/"):  # rename dir to pa
             if not img:
                 continue
             extractions = extract.from_img(model, img, logger=logger)
-            for item in extractions:
-                if item.is_valid:
-                    box.add(item)
-                logger.log(item)
+            for extraction in extractions:
+                if extraction.is_valid:
+                    box.add(extraction)
+                logger.log(extraction)
 
         with open(results_file, "a") as f:
             f.write(str(vars(box)) + "\n")
