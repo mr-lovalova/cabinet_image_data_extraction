@@ -6,31 +6,60 @@ from helpers import ObjectFactory
 import os
 
 
+"""
+DONT MIND THE QUALITY OF LOGGER FILE.
+Its only used for debugging and enhancement purposes not for production code
+"""
+
+
 class Logger:
     def __init__(self, destination=None, verbose_lvl=1):
         self.dest = destination
         self.verbose = verbose_lvl
         self.boxes = 0
         self.current = None
+        self.increments = {}
 
     def start(self, id_) -> None:
         self.current = id_
-        self.boxes += self.boxes
+        self.boxes += 1
 
     def log(self, item):
         path = f"{self.dest}{item.type}/{self.current}/"
         logger = loggers.create(item.type)
         logger.start(item=item)
         logger.save(path=path)
+        self.increments[item.type] = logger.count
         print(logger.output())
 
+    def resume(self):
+        out = f"Searched {self.boxes} boxes and foumd {self.increments['LABEL']} labels"
+        return out
 
-class LabelLogger:
+
+class ItemLogger(ABC):
+    @abstractmethod
+    def start(self):
+        pass
+
+    @abstractmethod
+    def save(self):
+        pass
+
+    @abstractmethod
+    def output(self):
+        pass
+
+
+class LabelLogger(ItemLogger):
+    count = 0
+
     def __init__(self):
         self.label = None
 
     def start(self, item, **ignored):
         self.label = item
+        LabelLogger.count += 1
 
     def save(self, path, **ignored):
         destination = self._get_destination(path)
@@ -69,7 +98,9 @@ class LabelLogger:
         return str(self.label)
 
 
-class SkipLogger:
+class SkipLogger(ItemLogger):
+    count = None
+
     def start(self, **ignored):
         pass
 
