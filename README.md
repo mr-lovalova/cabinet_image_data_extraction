@@ -16,11 +16,3 @@ Using computer vision teqniques to prepare label for text extraction;
 <div class="image-container">
     <img src="https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/6e79175a-164e-405b-9538-3770b527e6e5" alt="image" width="300" height="150">
 </div>
-
-
-<style>
-    .image-container {
-        display: inline-block;
-        margin-right: 10px; /* Adjust margin as needed */
-    }
-</style>
