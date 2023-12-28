@@ -2,24 +2,22 @@ Extracting text-based data in label format about electrical cabinets from the ex
 
 Examples of maintaince data where some data is removed from public access due to GDPR
 
-<div style="display: flex;">
-
-    <div style="flex: 1; margin-right: 10px;">
-        <img src="https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/3db0f412-63af-48d9-be5c-0751c8279d3b" alt="image" width="300" height="450">
-    </div>
-
-    <div style="flex: 1;">
-        <img src="https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/474839d6-0fb0-457c-b376-4e787f7237d0" alt="image" width="300" height="300">
-    </div>
-
+<div class="image-container">
+    <img src="https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/3db0f412-63af-48d9-be5c-0751c8279d3b" alt="image" width="300" height="450">
 </div>
-Located Label:
-![image](https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/0249849a-7882-4bc4-99c2-f2a95d79b504){:height="200px" width="300px"}
+
+<div class="image-container">
+    <img src="https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/474839d6-0fb0-457c-b376-4e787f7237d0" alt="image" width="300" height="300">
+</div>
+
+
+<div class="image-container">
+    <img src="https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/0249849a-7882-4bc4-99c2-f2a95d79b504" alt="image" width="300" height="450">
+</div>
+
+
 
 Label prepared for text extraction:
-![image](https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/6e79175a-164e-405b-9538-3770b527e6e5){:height="200px" width="300px"}
-
-
 
 <style>
     .image-container {
