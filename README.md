@@ -9,12 +9,12 @@ Examples of maintaince data where some data is removed from public access due to
 
 Using an object detection model to locate labels:
 <div class="image-container">
-    <img src="https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/0249849a-7882-4bc4-99c2-f2a95d79b504" alt="image" width="300" height="450">
+    <img src="https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/0249849a-7882-4bc4-99c2-f2a95d79b504" alt="image" width="150" height="300">
 </div>
 
 Using computer vision teqniques to prepare label for text extraction;
 <div class="image-container">
-    <img src="https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/6e79175a-164e-405b-9538-3770b527e6e5" alt="image" width="300" height="450">
+    <img src="https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/6e79175a-164e-405b-9538-3770b527e6e5" alt="image" width="300" height="150">
 </div>
 
 
