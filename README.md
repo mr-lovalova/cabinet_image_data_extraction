@@ -1,14 +1,14 @@
 Extracting text-based data in label format about electrical cabinets from the existing image database in the "facility archive", ultimately for use in cleaning up the company's database. The images have been not been collected to with the intention of data extraction but solely for documentation of maintenance related work. As a result, there is no fixed image standard and the quality varies greatly in terms of lighting/weather conditions, resolution, distance to our region of interest (if even present), rotation etc. In addition, many of the images will for the purpose of data extraction hold no usable information
 
 Examples of maintaince data where some data is removed from public access due to GDPR
-![image](https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/3db0f412-63af-48d9-be5c-0751c8279d3b)
-![image](https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/474839d6-0fb0-457c-b376-4e787f7237d0)
+![image](https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/3db0f412-63af-48d9-be5c-0751c8279d3b){:height="200px" width="300px"}
+![image](https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/474839d6-0fb0-457c-b376-4e787f7237d0){:height="200px" width="300px"}
 
 Located Label:
-![image](https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/0249849a-7882-4bc4-99c2-f2a95d79b504)
+![image](https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/0249849a-7882-4bc4-99c2-f2a95d79b504){:height="200px" width="300px"}
 
 Label prepared for text extraction:
-![image](https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/6e79175a-164e-405b-9538-3770b527e6e5)
+![image](https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/6e79175a-164e-405b-9538-3770b527e6e5){:height="200px" width="300px"}
 
 
 
