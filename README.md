@@ -4,23 +4,19 @@ Examples of maintaince data where some data is removed from public access due to
 
 <div class="image-container">
     <img src="https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/3db0f412-63af-48d9-be5c-0751c8279d3b" alt="image" width="300" height="450">
-    <img src="https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/474839d6-0fb0-457c-b376-4e787f7237d0" alt="image" width="300" height="300">
+    <img src="https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/474839d6-0fb0-457c-b376-4e787f7237d0" alt="image" width="300" height="450">
 </div>
 
-<div class="image-container">
-    <img src="https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/474839d6-0fb0-457c-b376-4e787f7237d0" alt="image" width="300" height="300">
-</div>
-
-
+Using an object detection model to locate labels:
 <div class="image-container">
     <img src="https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/0249849a-7882-4bc4-99c2-f2a95d79b504" alt="image" width="300" height="450">
 </div>
 
+Using computer vision teqniques to prepare label for text extraction;
+<div class="image-container">
+    <img src="https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/6e79175a-164e-405b-9538-3770b527e6e5" alt="image" width="300" height="450">
+</div>
 
-https://github.com/mr-lovalova/cabinet_image_data_extraction/assets/47424670/6e79175a-164e-405b-9538-3770b527e6e5
-
-
-Label prepared for text extraction:
 
 <style>
     .image-container {
