@@ -22,6 +22,12 @@ class Label(Model):
     def is_valid(self):
         return bool(self.id)
 
+    def serialize(self, serializer):
+        serializer.start_object("id", self.id)
+        serializer.add_property("format", self.format)
+        serializer.add_property("pixels", self.resolution)
+        serializer.add_property("text", self.text)
+
     def __eq__(self, other):
         return self.id == other.id
 

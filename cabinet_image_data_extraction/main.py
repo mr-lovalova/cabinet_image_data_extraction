@@ -8,6 +8,7 @@ import click
 from box import Box
 import extract
 import item
+import serializers
 
 
 def get_img(root, file):
@@ -16,22 +17,6 @@ def get_img(root, file):
     else:
         img = None
     return img
-
-
-def as_json(boxes):
-    out = {}
-    for box in boxes:
-        out[box.id] = box.asdict()
-    return json.dumps(out, indent=4, ensure_ascii=False)
-
-
-def save(file, folder, format_="JSON"):
-    destination = folder + "results.json"
-    if format_ == "JSON":
-        with open(destination, "w", encoding="utf-8") as outfile:
-            outfile.write(file)
-    else:
-        raise NotImplementedError("Format not implemented")
 
 
 def setup(path, conf, dest):
@@ -47,21 +32,26 @@ def start_file(path):
         pass
 
 
+def get_tree(path):
+    tree = os.walk(path, topdown=True)
+    next(tree)  # skipping top directory
+    return tree
+
+
 @click.command()
 @click.option(
     "--path",
     default="data/raw",
     help="Folder containing subfolders with images",
 )
-@click.option("--verbose", "-v", is_flag=True, help="Will print verbose messages.")
 @click.option("--conf", default=0.8, help="Confidence of object detection model")
-@click.option("--num_images", default=-1, help="Number of images to do detection from")
-def main(path, num_images, conf, verbose, dest="results2/"):  # rename dir to path
+def main(path, conf, dest="results2/"):  # rename dir to path
     path, model = setup(path, conf, dest)
     results_file = dest + "results.txt"
     start_file(results_file)
-    tree = os.walk(path, topdown=False)
+    tree = get_tree(path)
     logger = item.Logger(dest)
+    serializer = serializers.ObjectSerializer()
 
     for root, _, files in tree:
         id_ = root.split("/")[-1]
@@ -78,7 +68,13 @@ def main(path, num_images, conf, verbose, dest="results2/"):  # rename dir to pa
                 logger.log(extraction)
 
         with open(results_file, "a") as f:
-            f.write(str(vars(box)) + "\n")
+            print("VARS", dict(vars(box)))
+            print("type:", type(vars(box)))
+            print("SERIALIZED", serializer.serialize(box, "JSON"))
+            # f.write(str(vars(box)) + "\n")
+            f.write(serializer.serialize(box, "JSON") + "\n")
+
+    # print(logger.resume())
 
 
 if __name__ == "__main__":

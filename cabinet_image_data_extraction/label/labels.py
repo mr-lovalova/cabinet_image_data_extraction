@@ -14,6 +14,12 @@ class StikSkilt(Label):
     def format(self):
         return "STIKSKILT"
 
+    def serialize(self, serializer):
+        super().serialize(serializer)
+        serializer.add_property("ampere", self.ampere)
+        serializer.add_property("dimension", self.dimension)
+        serializer.add_property("address", self.address)
+
 
 class StikSkiltBuilder:
     def __call__(self, id_, resolution, remainder, parsed, images, **_ignored):
@@ -23,7 +29,7 @@ class StikSkiltBuilder:
 class StrækningsSkilt(Label):
     @property
     def format(self):
-        return "STRÆKNINGSSKILT"
+        return "STRAEKNINGSSKILT"
 
 
 class StrækningsSkiltBuilder:
