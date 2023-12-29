@@ -1,14 +1,18 @@
 import os
-import json
+import sys
 from pathlib import Path
 from PIL import Image
 import torch
 import click
 
+
 from box import Box
 import extract
 import item
 import serializers
+
+sys.path.append(".")
+from config import MODEL_PATH, RESULTS_FILE
 
 
 def get_img(root, file):
@@ -19,17 +23,16 @@ def get_img(root, file):
     return img
 
 
-def setup(path, conf, dest):
-    path = Path(path)
-    model = torch.hub.load("ultralytics/yolov5", "custom", "models/model.onnx")
-    model.conf = conf
-    Path(dest).mkdir(exist_ok=True)
-    return path, model
-
-
-def start_file(path):
-    with open(path, "w"):
+def ensure_destination(path, results_file):
+    path.mkdir(exist_ok=True)
+    with open(results_file, "w"):
         pass
+
+
+def get_detection_model(conf):
+    model = torch.hub.load("ultralytics/yolov5", "custom", MODEL_PATH)
+    model.conf = conf
+    return model
 
 
 def get_tree(path):
@@ -39,19 +42,19 @@ def get_tree(path):
 
 
 @click.command()
-@click.option(
-    "--path",
-    default="data/raw",
-    help="Folder containing subfolders with images",
-)
-@click.option("--conf", default=0.8, help="Confidence of object detection model")
-def main(path, conf, dest="results2/"):  # rename dir to path
-    path, model = setup(path, conf, dest)
-    results_file = dest + "results.txt"
-    start_file(results_file)
-    tree = get_tree(path)
-    logger = item.Logger(dest)
-    serializer = serializers.ObjectSerializer()
+@click.option("--source", default="data/raw", help="Path to image folders")
+@click.option("--output_format", default="JSON")
+@click.option("--conf", default=0.8, help="confidence of detection model")
+@click.option("--destination", default="results2/")
+def main(source, output_format, conf, destination):
+    source = Path(source)
+    destination = Path(destination)
+    results_file = destination / RESULTS_FILE
+    ensure_destination(destination, results_file)
+
+    model = get_detection_model(conf)
+    tree = get_tree(source)
+    logger = item.Logger(destination)
 
     for root, _, files in tree:
         id_ = root.split("/")[-1]
@@ -68,13 +71,9 @@ def main(path, conf, dest="results2/"):  # rename dir to path
                 logger.log(extraction)
 
         with open(results_file, "a") as f:
-            print("VARS", dict(vars(box)))
-            print("type:", type(vars(box)))
-            print("SERIALIZED", serializer.serialize(box, "JSON"))
-            # f.write(str(vars(box)) + "\n")
-            f.write(serializer.serialize(box, "JSON") + "\n")
+            f.write(serializers.serializer.serialize(box, output_format) + "\n")
 
-    # print(logger.resume())
+    logger.recap()
 
 
 if __name__ == "__main__":

@@ -31,3 +31,4 @@ class JsonSerializer(DictSerializer):
 factory = ObjectFactory()
 factory.register_builder("DICT", DictSerializer)
 factory.register_builder("JSON", JsonSerializer)
+serializer = ObjectSerializer()
