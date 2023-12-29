@@ -1,17 +1,17 @@
 import os
 import sys
+
+sys.path.append(".")
 from pathlib import Path
 from PIL import Image
 import torch
 import click
-
 
 from box import Box
 import extract
 import item
 import serializers
 
-sys.path.append(".")
 from config import MODEL_PATH, RESULTS_FILE
 
 
@@ -21,12 +21,6 @@ def get_img(root, file):
     else:
         img = None
     return img
-
-
-def ensure_destination(path, results_file):
-    path.mkdir(exist_ok=True)
-    with open(results_file, "w"):
-        pass
 
 
 def get_detection_model(conf):
@@ -41,6 +35,16 @@ def get_tree(path):
     return tree
 
 
+def ensure_destination_folder(destination):
+    destination.mkdir(exist_ok=True)
+    return destination / RESULTS_FILE
+
+
+def start_empty_results_file(file_path):
+    with open(file_path, "w"):
+        pass
+
+
 @click.command()
 @click.option("--source", default="data/raw", help="Path to image folders")
 @click.option("--output_format", default="JSON")
@@ -50,7 +54,9 @@ def main(source, output_format, conf, destination):
     source = Path(source)
     destination = Path(destination)
     results_file = destination / RESULTS_FILE
-    ensure_destination(destination, results_file)
+
+    ensure_destination_folder(destination)
+    start_empty_results_file(results_file)
 
     model = get_detection_model(conf)
     tree = get_tree(source)
