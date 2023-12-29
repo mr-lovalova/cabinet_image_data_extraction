@@ -12,7 +12,7 @@ import extract
 import item
 import serializers
 
-from config import MODEL_PATH, RESULTS_FILE
+from config import MODEL_PATH, RESULTS_FILE_PATH, DESTINATION_PATH
 
 
 def get_img(root, file):
@@ -37,7 +37,6 @@ def get_tree(path):
 
 def ensure_destination_folder(destination):
     destination.mkdir(exist_ok=True)
-    return destination / RESULTS_FILE
 
 
 def start_empty_results_file(file_path):
@@ -49,11 +48,10 @@ def start_empty_results_file(file_path):
 @click.option("--source", default="data/raw", help="Path to image folders")
 @click.option("--output_format", default="JSON")
 @click.option("--conf", default=0.8, help="confidence of detection model")
-@click.option("--destination", default="results2/")
-def main(source, output_format, conf, destination):
+def main(source, output_format, conf):
     source = Path(source)
-    destination = Path(destination)
-    results_file = destination / RESULTS_FILE
+    destination = Path(DESTINATION_PATH)
+    results_file = Path(RESULTS_FILE_PATH)
 
     ensure_destination_folder(destination)
     start_empty_results_file(results_file)

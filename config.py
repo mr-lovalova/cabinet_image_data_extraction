@@ -1,2 +1,8 @@
+# CABINET IMAGE EXTRACTION CONFIG
 MODEL_PATH = "models/model.onnx"
-RESULTS_FILE = "results.txt"
+DESTINATION_PATH = "results/"
+RESULTS_FILE_NAME = "results.txt"
+RESULTS_FILE_PATH = DESTINATION_PATH + RESULTS_FILE_NAME
+
+# TEST CONFIG
+TEST_DATA_PATH = "data/db/historical.csv"
