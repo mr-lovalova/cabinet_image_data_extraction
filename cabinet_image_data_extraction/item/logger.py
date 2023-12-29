@@ -32,8 +32,11 @@ class Logger:
         self.increments[item.type] = logger.count
         print(logger.output())
 
-    def resume(self):
+    def recap(self):
         out = f"Searched {self.boxes} boxes and foumd {self.increments['LABEL']} labels"
+        print("---------------RECAP---------------")
+        print(out)
+        print("-----------------------------------")
         return out
 
 
