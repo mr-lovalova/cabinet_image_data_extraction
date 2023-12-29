@@ -25,7 +25,7 @@ class Logger:
         self.boxes += 1
 
     def log(self, item):
-        path = f"{self.dest}{item.type}/{self.current}/"
+        path = f"{self.dest}/{item.type}/{self.current}/"
         logger = loggers.create(item.type)
         logger.start(item=item)
         logger.save(path=path)
