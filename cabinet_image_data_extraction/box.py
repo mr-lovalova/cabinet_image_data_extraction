@@ -30,6 +30,7 @@ class Box:
         for label in self.labels:
             s = ObjectSerializer()
             serialized.append(s.serialize(label, "DICT"))
+
         serializer.start_object("id", self.id)
         serializer.add_property("labels", serialized)
 

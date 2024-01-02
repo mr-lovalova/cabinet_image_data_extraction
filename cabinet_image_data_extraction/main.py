@@ -1,5 +1,6 @@
 import os
 import sys
+import re
 
 sys.path.append(".")
 from pathlib import Path
@@ -44,6 +45,16 @@ def start_empty_results_file(file_path):
         pass
 
 
+def parse_id(folder):
+    try:
+        station_id, cabinet_number = re.findall(r"\d+", folder)
+    except ValueError:  # folder has the wrong format
+        return None
+    cabinet_number = int(cabinet_number.lstrip("0"))
+    station_id = int(station_id.lstrip("0"))
+    return f"{station_id}-{cabinet_number}"
+
+
 @click.command()
 @click.option("--source", default="data/raw", help="Path to image folders")
 @click.option("--output_format", default="JSON")
@@ -61,7 +72,9 @@ def main(source, output_format, conf):
     logger = item.Logger(destination)
 
     for root, _, files in tree:
-        id_ = root.split("/")[-1]
+        id_ = parse_id(root.split("/")[-1])
+        if not id_:
+            continue
         box = Box(id_)
         logger.start(id_)
         for file in files:
