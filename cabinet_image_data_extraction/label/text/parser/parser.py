@@ -20,8 +20,14 @@ class LabelParser(ABC):
     def _id_pattern(self):
         pass
 
+    def _correct_format(self, id_):
+        """used in strækningskilt to remomve leading zeros"""
+        return id_
+
     def _clean_id(self, id_):
-        return "".join(filter(lambda x: x.isnumeric() or x == "-", id_))
+        id_ = "".join(filter(lambda x: x.isnumeric() or x == "-", id_))
+        id_ = self._correct_format(id_)
+        return id_
 
     def parse(self, text):
         self.remainder = text

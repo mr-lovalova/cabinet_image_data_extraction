@@ -1,6 +1,10 @@
 import re
+import sys
 from helpers import merge, ObjectFactory
 from .parser import LabelParser
+
+sys.path.append("....")
+from main import parse_id
 
 identifyers = {
     # all
@@ -57,6 +61,10 @@ class StrækningSkiltParser(LabelParser):
     @property
     def _patterns(self):
         return {}
+
+    def _correct_format(self, id_):
+        id_ = parse_id(id_)
+        return id_
 
 
 class DeltSkabParser(LabelParser):
