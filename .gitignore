@@ -5,8 +5,10 @@
 /data
 results.json
 /models
-results_check.json
-/åååååld
+/yolo
+
+/testset.txt
+/test.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
