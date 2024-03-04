@@ -3,7 +3,7 @@ from helpers import ObjectFactory
 from .model import Label
 
 
-class StikSkilt(Label):
+class ConnectionPointLabel(Label):
     def __init__(self, id_, resolution, remainder, parsed, **images):
         super().__init__(id_, resolution, remainder, **images)
         self.address = parsed.get("address", None)
@@ -12,7 +12,7 @@ class StikSkilt(Label):
 
     @property
     def format(self):
-        return "STIKSKILT"
+        return "CONNECTION_POINT"
 
     def serialize(self, serializer):
         super().serialize(serializer)
@@ -21,39 +21,20 @@ class StikSkilt(Label):
         serializer.add_property("address", self.address)
 
 
-class StikSkiltBuilder:
+class ConnectionPointLabelBuilder:
     def __call__(self, id_, resolution, remainder, parsed, images, **_ignored):
-        return StikSkilt(id_, resolution, remainder, parsed, **images)
+        return ConnectionPointLabel(id_, resolution, remainder, parsed, **images)
 
 
-class StrækningsSkilt(Label):
+class SubSectionLabel(Label):
     @property
     def format(self):
-        return "STRAEKNINGSSKILT"
+        return "SUBSECTION"
 
 
-class StrækningsSkiltBuilder:
+class SubSectionLabelBuilder:
     def __call__(self, id_, resolution, remainder, images, **_ignored):
-        return StrækningsSkilt(id_, resolution, remainder, **images)
-
-
-class DeltSkab(Label):
-    def __init__(self, id_, resolution, remainder, parsed, **images):
-        super().__init__(id_, resolution, remainder**images)
-        self.address = parsed.get("address", None)
-        self.ampere = parsed.get("ampere", None)
-        self.dimension = parsed.get("dimension", None)
-        # antal delinger e.g. 7 d
-        # inherit from skab?
-
-    @property
-    def format(self):
-        return "DELT_SKAB"
-
-
-class DeltSkabBuilder:
-    def __call__(self, id_, resolution, parsed, images, **_ignored):
-        return StikSkilt(id_, resolution, parsed, **images)
+        return SubSectionLabel(id_, resolution, remainder, **images)
 
 
 class UnknownLabel(Label):
@@ -71,8 +52,7 @@ class UnknownLabelBuilder:
 
 
 factory = ObjectFactory()
-factory.register_builder("STIKSKILT", StikSkiltBuilder)
-factory.register_builder("STRÆKNINGSSKILT", StrækningsSkiltBuilder)
-factory.register_builder("DELT_SKAB", DeltSkabBuilder)
+factory.register_builder("CONNECTION_POINT", ConnectionPointLabelBuilder)
+factory.register_builder("SUBSECTION", SubSectionLabelBuilder)
 
 factory.register_builder(None, UnknownLabelBuilder)

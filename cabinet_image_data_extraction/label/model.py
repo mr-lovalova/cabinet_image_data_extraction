@@ -1,11 +1,12 @@
 from abc import abstractmethod
-from item.model import Model
+from item.model import Object
 
 
-class Label(Model):
-    def __init__(self, id_, resolution, remainder, **images):
+class Label(Object):
+    def __init__(self, id_, dimensions, remainder, **images):
         self.id = id_
-        self.resolution = resolution
+        self.dimensions = dimensions
+        self.resolution = dimensions[0] * dimensions[1]
         self.imgs = images
         self.remainder = remainder
 
@@ -25,8 +26,6 @@ class Label(Model):
     def serialize(self, serializer):
         serializer.start_object("id", self.id)
         serializer.add_property("format", self.format)
-        serializer.add_property("pixels", self.resolution)
-        serializer.add_property("text", self.text)
 
     def __eq__(self, other):
         return self.id == other.id
@@ -40,6 +39,7 @@ class Label(Model):
         out["format"] = self.format
         out.pop("imgs")
         out.pop("remainder")
+        out.pop("dimensions")
         return str(out)
 
     def __hash__(self):
