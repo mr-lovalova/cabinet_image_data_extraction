@@ -2,15 +2,16 @@ from serializers import ObjectSerializer
 
 
 class Box:
-    """"""
+    """Data structure to represent electrical cabinet"""
 
     def __init__(self, id_) -> None:
         self.id = id_
         self.labels = []
+        self.station_id, self.cabinet_number = id_.split("-")
         self.model = None
-        self.capacity = None
+        self.capacity = []
 
-    def add(self, item):
+    def add_object(self, item):
         # TODO change to factory style before adding more capacity, model etc.
         if item.type == "LABEL":
             if item not in self.labels:
@@ -22,6 +23,8 @@ class Box:
                 if item > old_item:
                     self.labels.pop(idx)
                     self.labels.append(item)
+        elif item.type == "CAPACTITY":
+            self.capacity.append(item)
         else:
             raise NotImplementedError(item.type, " type has not been implemented yet")
 
