@@ -26,8 +26,8 @@ def get_img(root, file):
 
 
 def get_detection_model(conf):
-    model = torch.hub.load("ultralytics/yolov5", "custom", MODEL_PATH)  # yolov5
-    # model = YOLO(MODEL_PATH, task="detect")
+    # model = torch.hub.load("ultralytics/yolov5", "custom", MODEL_PATH)  # yolov5
+    model = YOLO(MODEL_PATH, task="detect")
     model.conf = conf
     return model
 
@@ -58,7 +58,7 @@ def parse_id(folder):
 
 
 @click.command()
-@click.option("--source", default="data/raw", help="Path to facility archive")
+@click.option("--source", default="data/raw3", help="Path to facility archive")
 @click.option("--output_format", default="JSON")
 @click.option("--conf", default=0.7, help="confidence of detection model")
 @click.option("--development_mode", is_flag=True, default=True)
@@ -84,7 +84,7 @@ def main(source, output_format, conf, development_mode):
             img = get_img(root, file)
             if not img:
                 continue
-            extractions = extract.from_img(model, img, logger=logger, box=box)
+            extractions = extract.from_img(model, img, box=box)
             print(f"FOUND {len(extractions)} LABELS ON IMAGE {file}")
             for extraction in extractions:
                 if extraction.is_valid:

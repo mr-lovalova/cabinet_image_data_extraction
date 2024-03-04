@@ -7,7 +7,7 @@ def get_crop(img, box):
     return crop
 
 
-def from_img2(model, img, **ignored):
+def from_img(model, img, **ignored):
     results = model(img)[0]
     extractions = []
     for detection in results.boxes:
@@ -18,7 +18,7 @@ def from_img2(model, img, **ignored):
 
 
 # YOLOv5 functionality
-def from_img(model, img, **ignored):
+def from_imgv5(model, img, **ignored):
     detections = model(img).crop(save=False)
     extractions = []
     for crop in detections:
