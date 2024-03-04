@@ -21,7 +21,7 @@ class LabelParser(ABC):
         pass
 
     def _correct_format(self, id_):
-        """used in strækningskilt to remomve leading zeros"""
+        """used in strækningskilt to remomve leading zeros for example"""
         return id_
 
     def _clean_id(self, id_):
