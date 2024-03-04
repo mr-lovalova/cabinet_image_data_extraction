@@ -13,24 +13,29 @@ Its only used for debugging and enhancement purposes not for production code
 
 
 class Logger:
-    def __init__(self, destination=None, verbose_lvl=1):
+    def __init__(self, development_mode, destination=None, verbose_lvl=1):
         self.dest = destination
         self.verbose = verbose_lvl
         self.boxes = 0
         self.current = None
         self.increments = {}
+        self.development_mode = development_mode
 
     def start(self, id_) -> None:
         self.current = id_
         self.boxes += 1
+        print("----------SEARCHING BOX------------")
+        print(id_)
+        print("-----------------------------------")
 
     def log(self, item):
-        path = f"{self.dest}/{item.type}/{self.current}/"
         logger = loggers.create(item.type)
         logger.start(item=item)
-        logger.save(path=path)
         self.increments[item.type] = logger.count
-        print(logger.output())
+        if self.development_mode:
+            return
+        path = f"{self.dest}/{item.type}/{self.current}/"
+        logger.save(path=path)
 
     def recap(self):
         out = f"Searched {self.boxes} boxes and foumd {self.increments['LABEL']} labels"

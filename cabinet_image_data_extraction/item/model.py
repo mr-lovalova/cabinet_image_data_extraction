@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class Model(ABC):
+class Object(ABC):
     @property
     @abstractmethod
     def type(self):
@@ -14,5 +14,5 @@ class Model(ABC):
         pass
 
     @abstractmethod
-    def __gt__(self, other):
+    def serialize(self):
         pass

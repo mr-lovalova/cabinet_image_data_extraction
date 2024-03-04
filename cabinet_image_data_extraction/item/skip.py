@@ -1,7 +1,7 @@
-from .model import Model
+from .model import Object
 
 
-class Skip(Model):
+class Skip(Object):
     @property
     def type(self):
         return "SKIP"
@@ -12,6 +12,9 @@ class Skip(Model):
         return False
 
     def __gt__(self, other):
+        pass
+
+    def serialize(self):
         pass
 
 

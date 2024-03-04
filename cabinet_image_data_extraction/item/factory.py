@@ -8,7 +8,9 @@ from helpers import ObjectFactory
 # factories for item-detections
 factory = ObjectFactory()
 factory.register_builder("black", label.builder)
+factory.register_builder("black label", label.builder)
 factory.register_builder("old", skip)
 factory.register_builder("yellow", skip)
 factory.register_builder("cabinet_model", cabinet_model.builder)
-factory.register_builder("capacity", capacity.builder)
+factory.register_builder("c1", capacity.builder)
+# factory.register_builder("c2", capacity.builder)
