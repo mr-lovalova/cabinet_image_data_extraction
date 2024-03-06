@@ -3,7 +3,7 @@ from helpers import ObjectFactory
 from .model import Label
 
 
-class ConnectionPointLabel(Label):
+class ConnectionPoint(Label):
     def __init__(self, id_, resolution, remainder, parsed, **images):
         super().__init__(id_, resolution, remainder, **images)
         self.address = parsed.get("address", None)
@@ -21,20 +21,20 @@ class ConnectionPointLabel(Label):
         serializer.add_property("address", self.address)
 
 
-class ConnectionPointLabelBuilder:
+class ConnectionPointBuilder:
     def __call__(self, id_, resolution, remainder, parsed, images, **_ignored):
-        return ConnectionPointLabel(id_, resolution, remainder, parsed, **images)
+        return ConnectionPoint(id_, resolution, remainder, parsed, **images)
 
 
-class SubSectionLabel(Label):
+class SubSection(Label):
     @property
     def format(self):
         return "SUBSECTION"
 
 
-class SubSectionLabelBuilder:
+class SubSectionBuilder:
     def __call__(self, id_, resolution, remainder, images, **_ignored):
-        return SubSectionLabel(id_, resolution, remainder, **images)
+        return SubSection(id_, resolution, remainder, **images)
 
 
 class UnknownLabel(Label):
@@ -52,7 +52,7 @@ class UnknownLabelBuilder:
 
 
 factory = ObjectFactory()
-factory.register_builder("CONNECTION_POINT", ConnectionPointLabelBuilder)
-factory.register_builder("SUBSECTION", SubSectionLabelBuilder)
+factory.register_builder("CONNECTION_POINT", ConnectionPointBuilder)
+factory.register_builder("SUBSECTION", SubSectionBuilder)
 
 factory.register_builder(None, UnknownLabelBuilder)
